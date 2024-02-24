@@ -1,4 +1,7 @@
 
+using HealthCare.Repository.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace HealthCare.API
 {
     public class Program
@@ -9,14 +12,26 @@ namespace HealthCare.API
 
             // Add services to the container.
 
+            #region Service Configurations
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<HealthCareContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+            });
+            
+
+            #endregion
+
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+            #region Middle Wares
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -27,10 +42,10 @@ namespace HealthCare.API
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
-            app.Run();
+            app.Run(); 
+            #endregion
         }
     }
 }
