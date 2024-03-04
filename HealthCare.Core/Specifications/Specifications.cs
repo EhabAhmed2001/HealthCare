@@ -20,5 +20,34 @@ namespace HealthCare.Core.Specifications
 
         // Property For Order By Desc
         public Expression<Func<T, object>> OrderByDesc { get; set; }
+
+        // For Pagination
+        public int Skip { get; set; }
+        public int Take { get; set; }
+        public bool IsPaginationEnable { get; set; } = true;
+
+        // To Claculate The Count Of Response Items
+        public int Count { get; set; }
+
+        //Get All
+        public Specifications()
+        {
+
+        }
+
+        // Get By Id
+        public Specifications(Expression<Func<T, bool>> criteriaExpression)
+        {
+            Criteria = criteriaExpression;
+        }
+
+        // Apply Pagination
+        public void ApplyPagination(int skip, int take)
+        {
+            Skip = skip;
+            Take = take;
+        }
+
+
     }
 }

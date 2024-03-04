@@ -20,12 +20,17 @@ namespace HealthCare.Repository
             _dbContext = DbContext;
         }
 
+        #region Without Specification
+
         public async Task<IEnumerable<T>> GetAllAsync()
         => await _dbContext.Set<T>().ToListAsync();
-
         public async Task<T?> GetByIdAsync(int id)
         => await _dbContext.Set<T>().FindAsync(id);
 
+        #endregion
+
+
+        #region With Specification
 
         public async Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecifications<T> Spec)
         => await GenerateSpec(Spec).ToListAsync();
@@ -34,7 +39,9 @@ namespace HealthCare.Repository
 
 
         private IQueryable<T> GenerateSpec(ISpecifications<T> Spec)
-        =>  SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>(), Spec).Result;
+        => SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>(), Spec).Result; 
+
+        #endregion
 
     }
 }

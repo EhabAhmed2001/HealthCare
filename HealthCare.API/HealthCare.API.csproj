@@ -17,4 +17,8 @@
     <ProjectReference Include="..\HealthCare.Service\HealthCare.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>

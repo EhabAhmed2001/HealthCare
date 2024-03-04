@@ -11,9 +11,9 @@ namespace HealthCare.Repository
 {
     public static class SpecificationEvaluator <T> where T : BaseEntity
     {
-        public static async Task<IQueryable<T>> GetQuery(IQueryable<T> Context, ISpecifications<T> Spec)
+        public static async Task<IQueryable<T>> GetQuery(IQueryable<T> DbContext, ISpecifications<T> Spec)
         {
-            var Query = Context;
+            var Query = DbContext;
 
             if(Spec.Criteria is not null)
                 Query = Query.Where(Spec.Criteria);
@@ -23,6 +23,11 @@ namespace HealthCare.Repository
 
             else if (Spec.OrderByDesc is not null)
                 Query = Query.OrderByDescending(Spec.OrderByDesc);
+
+            if (Spec.IsPaginationEnable)
+            {
+                Query = Query.Skip(Spec.Skip).Take(Spec.Take);
+            }
 
             if (Spec.Includes is not null)
                 Query = Spec.Includes.Aggregate(Query, (currentquery, includeexpression) => currentquery.Include(includeexpression));

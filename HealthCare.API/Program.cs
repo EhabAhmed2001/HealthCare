@@ -1,4 +1,5 @@
 
+using HealthCare.API.Extensions;
 using HealthCare.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,7 +23,8 @@ namespace HealthCare.API
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
             });
-            
+
+            builder.Services.AddApplicationService();
 
             #endregion
 
