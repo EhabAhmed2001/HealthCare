@@ -19,9 +19,15 @@ namespace HealthCare.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
             builder.Services.AddDbContext<HealthCareContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+            });
+
+            builder.Services.AddDbContext<HealthCareContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("AppIdentityConnection"));
             });
 
             builder.Services.AddApplicationService();

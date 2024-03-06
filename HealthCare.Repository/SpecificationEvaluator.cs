@@ -18,6 +18,8 @@ namespace HealthCare.Repository
             if(Spec.Criteria is not null)
                 Query = Query.Where(Spec.Criteria);
 
+            Spec.Count = await Query.CountAsync();
+
             if (Spec.OrderBy is not null)
                 Query = Query.OrderBy(Spec.OrderBy);
 
