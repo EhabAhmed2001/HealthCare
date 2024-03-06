@@ -1,4 +1,5 @@
 ﻿using HealthCare.Core;
+using HealthCare.Repository;
 
 namespace HealthCare.API.Extensions
 {
@@ -6,7 +7,7 @@ namespace HealthCare.API.Extensions
     {
         public static IServiceCollection AddApplicationService(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IUnitOfWork), typeof(IUnitOfWork));
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
 
             return services;
         }

@@ -1,6 +1,7 @@
 
 using HealthCare.API.Extensions;
 using HealthCare.Repository.Data;
+using HealthCare.Repository.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace HealthCare.API
@@ -25,12 +26,15 @@ namespace HealthCare.API
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
             });
 
-            builder.Services.AddDbContext<HealthCareContext>(options =>
+            builder.Services.AddDbContext<HelthCareIdentityContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("AppIdentityConnection"));
             });
 
             builder.Services.AddApplicationService();
+
+
+            builder.Services.AddIdentityServices(builder.Configuration);
 
             #endregion
 
@@ -47,6 +51,8 @@ namespace HealthCare.API
             }
 
             app.UseHttpsRedirection();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
