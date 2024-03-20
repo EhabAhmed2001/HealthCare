@@ -16,7 +16,7 @@ namespace HealthCare.Core.Specifications
         public int Skip { get; set; }
         public int Take { get; set; }
         public bool IsPaginationEnable { get; set; }
-
+        public bool CountEnable { get; set; }
         public int Count { get; set; }
 
     }

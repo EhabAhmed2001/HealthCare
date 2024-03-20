@@ -23,11 +23,11 @@ namespace HealthCare.API.Extensions
 
             Services.AddAuthentication(Option =>
             {
-                Option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                Option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                Option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;  // Default schema for all end-points is bearer
+                Option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;     // No end-points will called without bearer schema
 
             })
-                .AddJwtBearer(option =>
+                .AddJwtBearer(option =>     // validation bearer schema to handle it (it's not handled)
                 {
                     option.TokenValidationParameters = new TokenValidationParameters()
                     {

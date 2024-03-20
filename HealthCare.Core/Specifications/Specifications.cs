@@ -9,10 +9,10 @@ namespace HealthCare.Core.Specifications
 {
     public class Specifications<T> :ISpecifications<T> where T : BaseEntity
     {
-        // Sign For Property For Where [Where(P => P.Id == id)]
+        // Sign For Property For Where [Where(U => U.Id == id)]
         public Expression<Func<T, bool>> Criteria { get; set; }
 
-        // Sign For Property For Include [Include(P => P.ProductType).Include(P => P.ProductBrand)]
+        // Sign For Property For Include [Include(U => U.History)]
         public List<Expression<Func<T, object>>> Includes { get; set; }
 
         // Property for Order by Asc
@@ -27,6 +27,7 @@ namespace HealthCare.Core.Specifications
         public bool IsPaginationEnable { get; set; } = true;
 
         // To Claculate The Count Of Response Items
+        public bool CountEnable { get; set; } = true;
         public int Count { get; set; }
 
         //Get All
@@ -35,7 +36,7 @@ namespace HealthCare.Core.Specifications
 
         }
 
-        // Get By Id
+        // Get By Criteria
         public Specifications(Expression<Func<T, bool>> criteriaExpression)
         {
             Criteria = criteriaExpression;
