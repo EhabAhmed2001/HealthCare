@@ -24,7 +24,8 @@ namespace HealthCare.API.Extensions
             Services.AddAuthentication(Option =>
             {
                 Option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;  // Default schema for all end-points is bearer
-                Option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;     // No end-points will called without bearer schema
+                Option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;     /* No end-points will called without bearer schema
+                                                                                              Any Request Must Have Bearer Schema */
 
             })
                 .AddJwtBearer(option =>     // validation bearer schema to handle it (it's not handled)
