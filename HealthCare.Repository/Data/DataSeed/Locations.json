@@ -1,0 +1,627 @@
+﻿[
+  {
+    "Name": "El Ezaby Pharmacies",
+
+    "Address": {
+      "Street": "2 casino St, intersection with Talaat St.",
+      "Region": "San Stefano Grand Plaza Mall, Al Awaaf Building",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/bX5ZE3Mbsa6VrpcF9"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Sidi Gaber Station Square, inside Sidi Gaber Railway Station",
+      "Region": "Sidi Gaber",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/3PLVzHQp7MCF79Ds5"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Misr Station Square, inside Misr Railway Station",
+      "Region": "Misr Station",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/tNoVg43hjES9TgeBA"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Beside Loran Hospital - 8 Nour El Hoda St - Off Shaarawy St",
+      "Region": "Loran",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/kXmEKM1pTmkjonkBA"
+  },
+  {
+    "Name": "Osama El Tayiby Pharmacies",
+    "Address": {
+      "Street": "45 Al Akbal",
+      "Region": "Loran",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.google.com/?cid=8155313488097175116&entry=gps"
+  },
+  {
+    "Name": "Osama El Tayiby Pharmacies",
+    "Address": {
+      "Street": "728 El-Gaish Rd",
+      "Region": "Al Mandarah Bahri, Montaza 2",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.google.com/?cid=12635330699440540549&entry=gps"
+  },
+  {
+    "Name": "Osama El Tayiby Pharmacies",
+    "Address": {
+      "Street": "286 Gamal Abdel Nasser Road, in front of McDonald's",
+      "Region": "Miami",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/jrJxopneFrpa3Kvs9"
+  },
+  {
+    "Name": "Osama El Tayiby Pharmacies",
+    "Address": {
+      "Street": "El Qasem, As Soyouf Qebli (Include Izbat Derbanah)",
+      "Region": "Al oyouf, Montaza 1",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/r6hr5pCNZphwDfYY9"
+  },
+  {
+    "Name": "Khalil Pharmacies",
+    "Address": {
+      "Street": "Montaza 2, Gamal Abd El Naser st",
+      "Region": "Mandarah",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "19040",
+    "Type": "P",
+    "Location": "https://maps.google.com/?cid=15175925385577025410&entry=gps"
+  },
+  {
+    "Name": "Khalil Pharmacies",
+    "Address": {
+      "Street": "Montazah, Sheraton Montazah Towers, in front of the palace, El-Gaish Rd",
+      "Region": "Al Mandarah Bahri",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "19040",
+    "Type": "P",
+    "Location": "https://maps.google.com/?cid=1144376069283811138&entry=gps"
+  },
+  {
+    "Name": "Khalil Pharmacies",
+    "Address": {
+      "Street": "Mabaret Al-Asafra Hospital, 390 King Hefny Street",
+      "Region": "Al-Asafra",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "19040",
+    "Type": "P",
+    "Location": "https://maps.google.com/?cid=8282715943728044642&entry=gps"
+  },
+  {
+    "Name": "Khalil Pharmacies",
+    "Address": {
+      "Street": "Al Kazeno, San Stefano, El Raml 2",
+      "Region": "San Stefano, El Raml 2",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "19040",
+    "Type": "P",
+    "Location": "https://maps.google.com/?cid=2939086055536753111&entry=gps"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Talaat Harb Sq Shop",
+      "Region": "Downtown",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/Y9VHZBaKzG3KvZRs6"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "4 Makram Ebeid, Al Manteqah as Sadesah",
+      "Region": "Nasr City",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/yqjozvEaSchhRUim7"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Egypt train station, Shop, 104 A, Ramsis Square, Al Fagalah",
+      "Region": "Al Azbakeya",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/YVcQW9rizoPtrWqy8"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "23 El Amin Sami St",
+      "Region": "Kasr al ainy",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/rK3DwktcAFz4kwpVA"
+  },
+  {
+    "Name": "Osama El Tayiby Pharmacies",
+    "Address": {
+      "Street": "2 extension Abd El-Hameed Badawi st",
+      "Region": "Nasr City",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.google.com/?cid=9016861616138886740&entry=gps"
+  },
+  {
+    "Name": "Osama El Tayiby Pharmacies",
+    "Address": {
+      "Street": "Al Asherah, Mustafa El Nahas st",
+      "Region": "Nasr City",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/VeN6VaGS9CobBwZw8"
+  },
+  {
+    "Name": "Khalil Pharmacies",
+    "Address": {
+      "Street": "38 El-Rawda Square, AR Rawdah WA Al Meqyas",
+      "Region": "Old Cairo",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "19040",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/bzrtjip7AycsKoLy8"
+  },
+  {
+    "Name": "Khalil Pharmacies",
+    "Address": {
+      "Street": "1377 Nile Corniche, Aga Khan",
+      "Region": "El Sahel",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "19040",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/8G9mgPvCeA14Jp1U8"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "134 Al Bahr Al Aazam St",
+      "Region": "Al Giza",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/e3YD2YJw4fXvfyKcA"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Mourad St",
+      "Region": "Giza Residence Tower Plot",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/qeQ8iabcaQZ1g8dj6"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Corner Abdulkhaliq Azzouz, Next to Sallab, 365 pyramid St",
+      "Region": "Al Giza",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/95Hsw4rfnJoXJBzd7"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Oriental Weavers Building, 30 Gamaat El Dawel St In front of CIB Bank",
+      "Region": "Al Mohandseen",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/fWw9VxLKgvtvbn5g8"
+  },
+  {
+    "Name": "Osama El Tayiby Pharmacies",
+    "Address": {
+      "Street": "401 King Faisal St, Faisal",
+      "Region": " El Talbia, Faisal",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.google.com/?cid=4928602556106610731&entry=gps"
+  },
+  {
+    "Name": "Osama El Tayiby Pharmacies",
+    "Address": {
+      "Street": " Dr Majed Mohamed Tawfeek",
+      "Region": "Al Haram",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/kNLiFdogFNCeQRcC8"
+  },
+  {
+    "Name": "Khalil Pharmacie",
+    "Address": {
+      "Street": "Ahl Al Kheir Mosque, Al Omraneyah Al Gharbeyah",
+      "Region": "El Omraniya",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/A8k3PPE67GnPf6vC6"
+  },
+  {
+    "Name": "Khalil Pharmacie",
+    "Address": {
+      "Street": "King Faisal St, Kafr Tohormos",
+      "Region": "Al Haram",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/Z5CQDQ9fk5DNHKB9A"
+  },
+  {
+    "Name": "Khalil Pharmacie",
+    "Address": {
+      "Street": "53 Al Mehwar Al Markazi",
+      "Region": "First 6th of October",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "16840",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/Xwt7xVmFpmzqMwiD9"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Commercial Market, Marina 5",
+      "Region": "Al Alameen City",
+      "City": "North Coast, Marsa Matrouh",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/R6iGKKwyYMhkaani7"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Marina 5 Marina Gate 5",
+      "Region": "Marina 5",
+      "City": "North Coast, Marsa Matrouh",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/fSKRvcfZsxpMMtQk7"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Marsa Matrouh Rd Marina Gate 2",
+      "Region": "Marina 5",
+      "City": "North Coast, Marsa Matrouh",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/NJoAietYFvgLWieZ6"
+  },
+  {
+    "Name": "El Ezaby Pharmacies",
+    "Address": {
+      "Street": "Marina 4, Abou Shakra Northern coast",
+      "Region": "Marina 5",
+      "City": "North Coast, Marsa Matrouh",
+      "Country": "Egypt"
+    },
+    "Hotline": "19600",
+    "Type": "P",
+    "Location": "https://maps.app.goo.gl/Tzm2m9yBJ8QZ8KZ69"
+  },
+  {
+    "Name": "Mabaret Alasafra Hospital",
+    "Address": {
+      "Street": "First Section, 432 Hifni King, Al Asafra Station",
+      "Region": "San Stefano",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "15016",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/74JoR2uBRhDbDeyj6"
+  },
+  {
+    "Name": "Sharq El madena - Jehan Hospital",
+    "Address": {
+      "Street": "Gamal Abd El-Nasir Rd",
+      "Region": "Sidi Beshr Bahri, Montaza 1",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "035499920",
+    "Type": "H",
+    "Location": "https://maps.google.com/?cid=6775274054567456082&entry=gps"
+  },
+  {
+    "Name": "Mar Morcos Hospital",
+    "Address": {
+      "Street": "El-Sayed Radwan st, Sidi Beshr Bahri",
+      "Region": "Sidi Beshr Bahri, Montaza 1",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "035386100",
+    "Type": "H",
+    "Location": "https://maps.google.com/?cid=16941809578909316198&entry=gps"
+  },
+  {
+    "Name": "El Ahram Specialized Hospital",
+    "Address": {
+      "Street": "Branched from Gamal Abd Al Naser",
+      "Region": "Asafra Bahri, Montaza 2",
+      "City": "Alexandria",
+      "Country": "Egypt"
+    },
+    "Hotline": "0502475555",
+    "Type": "H",
+    "Location": "https://maps.google.com/?cid=16941809578909316198&entry=gps"
+  },
+  {
+    "Name": "Al Hussein University Hospital",
+    "Address": {
+      "Street": "Jawhar Al Qaed",
+      "Region": "Al-Darb Al-Ahmar",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "01020186351",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/2uSqfxk2LUWq5GZ49"
+  },
+  {
+    "Name": "57357 Children’s Cancer Hospital",
+    "Address": {
+      "Street": "Sekat Hadid Al Mahger, Zeinhom",
+      "Region": "El Sayeda Zeinab",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "0225351500",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/2uSqfxk2LUWq5GZ49"
+  },
+  {
+    "Name": "Greek Hospital",
+    "Address": {
+      "Street": "15 Ahmed Fouad Abd Al Aziz Al Sarayat Sabekaa",
+      "Region": "Sarayat, El Weili",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "0224822259",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/vCAYDxfyW8VvPKBU9"
+  },
+  {
+    "Name": "ElGomhoria Teaching Hospital",
+    "Address": {
+      "Street": "12 El Baramouny St ,16 Ismail Abou Tabel St",
+      "Region": "Saqqyin, Abdeen",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "0223905166",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/jJrRjvF5SePLdvUH8"
+  },
+  {
+    "Name": "Italian Hospital",
+    "Address": {
+      "Street": "17 El Sarayat St",
+      "Region": "Abbassieh",
+      "City": "Cairo",
+      "Country": "Egypt"
+    },
+    "Hotline": "0236740088",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/jJrRjvF5SePLdvUH8"
+  },
+  {
+    "Name": "Nile Hospital",
+    "Address": {
+      "Street": "5 University St",
+      "Region": "Oula, Al Giza",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "0235680181",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/jJrRjvF5SePLdvUH8"
+  },
+  {
+    "Name": "Giza Specialized Hospital",
+    "Address": {
+      "Street": "4 Muhammad Al-Zaki, off Khatam Al-Morsaleen St",
+      "Region": "Al-Haram",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "01000979012",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/w7zkmC7z6kuMFQDd6"
+  },
+  {
+    "Name": "Om El Masryeen Hospital",
+    "Address": {
+      "Street": "Salah Salem",
+      "Region": "Rabaa, Al Giza",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "0235720753",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/1dTbfr9Ry3rQ6hn2A"
+  },
+  {
+    "Name": "Dokki Hospital",
+    "Address": {
+      "Street": "Ad Doqi",
+      "Region": "Dokki",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "N/A",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/3rUUZJprjMA6Ejx27"
+  },
+  {
+    "Name": "Umm El Atebaa Hospital",
+    "Address": {
+      "Street": "13 Saleh Salim Okasha St",
+      "Region": "Doqi, Al Giza",
+      "City": "Giza",
+      "Country": "Egypt"
+    },
+    "Hotline": "0233380360",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/S6zpTH9j3gSe6xfL9"
+  },
+  {
+    "Name": "El Karnak International Hospital",
+    "Address": {
+      "Street": "Kornish Al Nile",
+      "Region": "Karnak",
+      "City": "Luxor",
+      "Country": "Egypt"
+    },
+    "Hotline": "0952372025",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/jpw51XqCb8CqcinB7"
+  },
+  {
+    "Name": "Luxor International Hospital",
+    "Address": {
+      "Street": "Television St",
+      "Region": "Gazirat Al Awameyah",
+      "City": "Luxor",
+      "Country": "Egypt"
+    },
+    "Hotline": "0952277194",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/8iS3WrbDBLqmV2wm7"
+  },
+  {
+    "Name": "Cleopatra Hospital",
+    "Address": {
+      "Street": "Luxor City",
+      "Region": "Luxor",
+      "City": "Luxor",
+      "Country": "Egypt"
+    },
+    "Hotline": "0952277194",
+    "Type": "H",
+    "Location": "https://maps.app.goo.gl/pabZYaZjHYNCsBSU7"
+  },
+  {
+    "Name": "Al Kamal Hospital",
+    "Address": {
+      "Street": "Sayala Badran St behind Karnak",
+      "Region": "Temple, Karnak",
+      "City": "Luxor",
+      "Country": "Egypt"
+    },
+    "Hotline": "01098235556",
+    "Type": "H",
+    "Location": "https://maps.google.com/?cid=2754730975789400058&entry=gps"
+  },
+  {
+    "Name": "Isis Central Hospital",
+    "Address": {
+      "Street": "Masaleh Al-Hakomiya St",
+      "Region": " Madinet Al Bayadeyah",
+      "City": "Luxor",
+      "Country": "Egypt"
+    },
+    "Hotline": "0952300039",
+    "Type": "H",
+    "Location": "https://maps.google.com/?cid=2754730975789400058&entry=gps"
+  }
+]
