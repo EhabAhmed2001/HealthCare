@@ -14,10 +14,10 @@ namespace Talabat.Repository.Identity
 	{
 		public static async Task SeedUserAsync(UserManager<AppUser> userManager)
 		{
-			if (!userManager.Users.Any())
-			{
+			//if (!userManager.Users.Any())
+			//{
 				
-            }
+   //         }
 
 		}
 	}

@@ -54,11 +54,11 @@ namespace HealthCare.API
 
                 await DbContext.Database.MigrateAsync();
 
-                //var userManager = service.GetRequiredService<UserManager<AppUser>>();
+                var userManager = service.GetRequiredService<UserManager<AppUser>>();
 
                 await DataStoreSeed.SeedAsync(DbContext);
 
-                // await IdentityStoreSeed.SeedUserAsync(userManager);
+                await IdentityStoreSeed.SeedUserAsync(userManager);
 
             }
             catch (Exception ex)
