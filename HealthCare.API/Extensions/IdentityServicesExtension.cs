@@ -1,4 +1,5 @@
 ﻿using HealthCare.Core;
+using HealthCare.Core.Entities;
 using HealthCare.Core.Entities.identity;
 using HealthCare.Core.Services;
 using HealthCare.Repository;
@@ -6,6 +7,7 @@ using HealthCare.Repository.Data;
 using HealthCare.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -20,6 +22,7 @@ namespace HealthCare.API.Extensions
 
             Services.AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<HealthCareContext>();
+
 
             Services.AddAuthentication(Option =>
             {

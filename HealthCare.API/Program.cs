@@ -1,10 +1,12 @@
 
 using HealthCare.API.Extensions;
+using HealthCare.Core.Entities;
 using HealthCare.Core.Entities.identity;
 using HealthCare.Repository.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Talabat.Repository.Data;
+using Talabat.Repository.Identity;
 
 namespace HealthCare.API
 {
@@ -52,9 +54,11 @@ namespace HealthCare.API
 
                 await DbContext.Database.MigrateAsync();
 
-                // var userManager = service.GetRequiredService<UserManager<AppUser>>();
+                //var userManager = service.GetRequiredService<UserManager<AppUser>>();
 
                 await DataStoreSeed.SeedAsync(DbContext);
+
+                // await IdentityStoreSeed.SeedUserAsync(userManager);
 
             }
             catch (Exception ex)
