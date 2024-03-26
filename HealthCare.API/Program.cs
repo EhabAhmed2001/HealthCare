@@ -51,7 +51,6 @@ namespace HealthCare.API
             {
                 var DbContext = service.GetRequiredService<HealthCareContext>();
 
-
                 await DbContext.Database.MigrateAsync();
 
                 var userManager = service.GetRequiredService<UserManager<AppUser>>();
