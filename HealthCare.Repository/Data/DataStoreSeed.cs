@@ -18,6 +18,10 @@ namespace Talabat.Repository.Data
 			var ServicePath = "../HealthCare.Repository/Data/DataSeed/Locations.json";
 
 			await TransferData<Service>(ServicePath, dbContext);
+			
+			var HWIdPath = "../HealthCare.Repository/Data/DataSeed/HardwareId.json";
+
+			await TransferData<Hardware>(HWIdPath, dbContext);
 
 
 			///if(!dbContext.ProductBrands.Any())

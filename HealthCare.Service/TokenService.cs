@@ -16,12 +16,12 @@ namespace HealthCare.Service
     public class TokenService : ITokenService
     {
         private readonly IConfiguration _configuration;
-       // private readonly UserManager<AppUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public TokenService(IConfiguration configuration/* UserManager<AppUser> userManager*/)
+        public TokenService(IConfiguration configuration, UserManager<AppUser> userManager)
         {
             _configuration = configuration;
-            //_userManager = userManager;
+            _userManager = userManager;
         }
 
         public async Task<string> CreateTokenAsync(AppUser user)
@@ -33,13 +33,13 @@ namespace HealthCare.Service
                 new Claim(ClaimTypes.GivenName, user.UserName!)
             };
 
-            //var userRoles = await _userManager.GetRolesAsync(user);
+            var userRoles = await _userManager.GetRolesAsync(user);
 
-            //// Add UserRoles To Claims
-            //foreach (var role in userRoles)
-            //{
-            //    UserClaim.Add(new Claim(ClaimTypes.Role, role));
-            //}
+            // Add UserRoles To Claims
+            foreach (var role in userRoles)
+            {
+                UserClaim.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             // Security Key
             var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]!));
