@@ -358,7 +358,7 @@ namespace HealthCare.Repository.Migrations
 
             modelBuilder.Entity("HealthCare.Core.Entities.Data.Service", b =>
                 {
-                    b.OwnsOne("HealthCare.Core.Entities.Address", "Address", b1 =>
+                    b.OwnsOne("HealthCare.Core.Entities.Data.Service.Address#HealthCare.Core.Entities.Address", "Address", b1 =>
                         {
                             b1.Property<string>("ServiceId")
                                 .HasColumnType("nvarchar(450)");
@@ -405,7 +405,7 @@ namespace HealthCare.Repository.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.OwnsOne("HealthCare.Core.Entities.Data.SensorsData", "UserData", b1 =>
+                    b.OwnsOne("HealthCare.Core.Entities.History.UserData#HealthCare.Core.Entities.Data.SensorsData", "UserData", b1 =>
                         {
                             b1.Property<string>("HistoryId")
                                 .HasColumnType("nvarchar(450)");
@@ -441,7 +441,7 @@ namespace HealthCare.Repository.Migrations
 
             modelBuilder.Entity("HealthCare.Core.Entities.identity.AppUser", b =>
                 {
-                    b.OwnsOne("HealthCare.Core.Entities.Address", "Address", b1 =>
+                    b.OwnsOne("HealthCare.Core.Entities.identity.AppUser.Address#HealthCare.Core.Entities.Address", "Address", b1 =>
                         {
                             b1.Property<string>("AppUserId")
                                 .HasColumnType("nvarchar(450)");

@@ -33,7 +33,11 @@ namespace HealthCare.Repository.Configurations
             builder.HasOne(p => p.Hardware)
                 .WithOne()
                 .HasForeignKey<Patient>(p => p.HardwareId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.NoAction)
+                .IsRequired();
+
+            builder.HasIndex(p => p.HardwareId)
+                .IsUnique();
         }
     }
 }
