@@ -3,10 +3,11 @@ using HealthCare.API.Extensions;
 using HealthCare.Core.Entities;
 using HealthCare.Core.Entities.identity;
 using HealthCare.Repository.Data;
+using HealthCare.Repository.Data.DataSeed;
+using HealthCare.Repository.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Talabat.Repository.Data;
-using Talabat.Repository.Identity;
+
 
 namespace HealthCare.API
 {

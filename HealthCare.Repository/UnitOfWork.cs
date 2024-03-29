@@ -1,4 +1,5 @@
 ﻿using HealthCare.Core;
+using HealthCare.Core.Entities.Data;
 using HealthCare.Core.Repository;
 using HealthCare.Repository.Data;
 using System;
@@ -32,7 +33,7 @@ namespace HealthCare.Repository
 
         // Create Object Of GenericRepository Instead of Create All Of These in GenericRepository
         // And Create Objects I Didn't Need
-        public IGenericRepository<T> CreateRepository<T>() where T : BaseEntity
+        public IGenericRepository<T> CreateRepository<T>() where T : AppEntity
         {
             var key = typeof(T).Name;
             if (!_Repos.ContainsKey(key))

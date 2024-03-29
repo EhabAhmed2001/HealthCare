@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthCare.Core.Entities.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HealthCare.Core.Specifications
 {
-    public class Specifications<T> :ISpecifications<T> where T : BaseEntity
+    public class Specifications<T> :ISpecifications<T> where T : AppEntity
     {
         // Sign For Property For Where [Where(U => U.Id == id)]
         public Expression<Func<T, bool>> Criteria { get; set; }

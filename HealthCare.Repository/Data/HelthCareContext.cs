@@ -47,7 +47,7 @@ namespace HealthCare.Repository.Data
 
         // DbSets
         public DbSet<History> UserHistory { get; set; }
-        public DbSet<Service> Services { get; set; }
+        public DbSet<Services> Services { get; set; }
         public DbSet<Hardware> Hardware { get; set; }
     }
 }

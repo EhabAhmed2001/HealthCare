@@ -1,4 +1,5 @@
 ﻿using HealthCare.Core;
+using HealthCare.Core.Entities.Data;
 using HealthCare.Core.Specifications;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HealthCare.Repository
 {
-    public static class SpecificationEvaluator <T> where T : BaseEntity
+    public static class SpecificationEvaluator <T> where T : AppEntity
     {
         public static async Task<IQueryable<T>> GetQuery(IQueryable<T> DbContext, ISpecifications<T> Spec)
         {

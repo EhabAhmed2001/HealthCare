@@ -1,4 +1,5 @@
 ﻿using HealthCare.Core;
+using HealthCare.Core.Entities.Data;
 using HealthCare.Core.Repository;
 using HealthCare.Core.Specifications;
 using HealthCare.Repository.Data;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace HealthCare.Repository
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
+    public class GenericRepository<T> : IGenericRepository<T> where T : AppEntity
     {
         private readonly HealthCareContext _dbContext;
 

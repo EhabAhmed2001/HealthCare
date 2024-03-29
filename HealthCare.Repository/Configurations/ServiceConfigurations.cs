@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace HealthCare.Repository.Configurations
 {
-    public class ServiceConfigurations : IEntityTypeConfiguration<Service>
+    public class ServiceConfigurations : IEntityTypeConfiguration<Services>
     {
-        public void Configure(EntityTypeBuilder<Service> builder)
+        public void Configure(EntityTypeBuilder<Services> builder)
         {
             builder.OwnsOne(S => S.Address, S => S.WithOwner());
 

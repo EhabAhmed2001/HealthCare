@@ -1,4 +1,5 @@
-﻿using HealthCare.Core.Specifications;
+﻿using HealthCare.Core.Entities.Data;
+using HealthCare.Core.Specifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HealthCare.Core.Repository
 {
-    public interface IGenericRepository <T> where T : BaseEntity
+    public interface IGenericRepository <T> where T : AppEntity
     {
         #region Without Specification
 

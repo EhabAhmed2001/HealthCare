@@ -1,4 +1,5 @@
-﻿using HealthCare.Core.Repository;
+﻿using HealthCare.Core.Entities.Data;
+using HealthCare.Core.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace HealthCare.Core
     public interface IUnitOfWork : IAsyncDisposable
     {
         Task<int> CompleteAsync();
-        IGenericRepository<T> CreateRepository<T>() where T : BaseEntity;
+        IGenericRepository<T> CreateRepository<T>() where T : AppEntity;
     }
 }
