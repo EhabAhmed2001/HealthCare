@@ -20,7 +20,7 @@ namespace HealthCare.Core.Entities.Data
             }
             set
             {
-                Type = $"{value.ToString().ToUpper()[0]}";
+                type = $"{value.ToString().ToUpper()[0]}";
             }
         }
         public string Location { get; set; }
