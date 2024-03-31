@@ -1,0 +1,173 @@
+[
+  {
+    "id": "GN-2024-03-29-1234",
+    "userName": "EmilySmith87",
+    "email": "emilysmith@gmail.com",
+    "phoneNumber": "12345678901",
+    "firstName": "Emily",
+    "lastName": "Smith",
+    "address": {
+      "street": "123 Oak Street",
+      "region": "Eastside",
+      "city": "Springfield",
+      "country": "United States"
+    },
+    "gender": "M",
+    "bod": "1997-07-28",
+    "hardwareId": "F2AA9B1CDD5E"
+  },
+  {
+    "id": "GD-2024-03-29-5678",
+    "userName": "JohnDoe_24",
+    "email": "johndoe@gmail.com",
+    "phoneNumber": "23456789012",
+    "firstName": "John",
+    "lastName": "Doe",
+    "address": {
+      "street": "456 Maple Avenue",
+      "region": "Downtown",
+      "city": "Rivertown",
+      "country": "Canada"
+
+    },
+    "gender": "F",
+    "bod": "1980-10-01",
+    "hardwareId": "3C4E782BAFF0"
+  },
+  {
+    "id": "GT-2024-03-29-91011",
+    "userName": "SarahJohnson123",
+    "email": "sarahjohnson@gmail.com",
+    "phoneNumber": "34567890123",
+    "firstName": "Sarah",
+    "lastName": "Johnson",
+    "address": {
+      "street": "789 Pine Road",
+      "region": "West End",
+      "city": "Meadowville",
+      "country": "Australia"
+    },
+    "gender": "F",
+    "bod": "1977-09-03",
+    "hardwareId": "A15BDF3987DE"
+  },
+  {
+    "id": "GQ-2024-03-29-121314",
+    "userName": "AlexBrown8282",
+    "email": "alexbrown82@gmail.com",
+    "phoneNumber": "45678901234",
+    "firstName": "Alex",
+    "lastName": "Brown",
+    "address": {
+      "street": "321 Elm Street",
+      "region": "Northside",
+      "city": "Hilltown",
+      "country": "United Kingdom"
+    },
+    "gender": "M",
+    "bod": "1966-07-28",
+    "hardwareId": "162D0F51CBE9"
+  },
+  {
+    "id": "GM-2024-03-29-151617",
+    "userName": "Jessica_Walker",
+    "email": "jessicawalker@gmail.com",
+    "phoneNumber": "56789012345",
+    "firstName": "Jessica",
+    "lastName": "Walker",
+    "address": {
+      "street": "567 Birch Lane",
+      "region": "Southside",
+      "city": "Garden City",
+      "country": "New Zealand"
+    },
+    "gender": "F",
+    "bod": "1998-12-28",
+    "hardwareId": "7E9FA1CD0321"
+  },
+  {
+    "id": "GM-2024-03-29-084512",
+    "userName": "ZenithFlare",
+    "email": "zenithflare@gmail.com",
+    "phoneNumber": "67890123456",
+    "firstName": "zenith",
+    "lastName": "Flare",
+    "address": {
+      "street": "890 Oak Street",
+      "region": "Northview",
+      "city": "Garden City",
+      "country": "New Zealand"
+    },
+    "gender": "M",
+    "bod": "1998-06-20",
+    "hardwareId": "EB02C34FE153"
+  },
+  {
+    "id": "GM-2024-03-29-235959",
+    "userName": "LunaSilver",
+    "email": "lunasilver@gmail.com",
+    "phoneNumber": "78901234567",
+    "firstName": "Luna",
+    "lastName": "Silver",
+    "address": {
+      "street": "456 Pine Street",
+      "region": "Westside",
+      "city": "Garden City",
+      "country": "New Zealand"
+    },
+    "gender": "F",
+    "bod": "1977-12-28",
+    "hardwareId": "5D14E5622975"
+  },
+  {
+    "id": "GM-2024-03-29-123456",
+    "userName": "SparklingDreams23",
+    "email": "sparklingdreams@gmail.com",
+    "phoneNumber": "89012345678",
+    "firstName": "Sparkling",
+    "lastName": "dreams",
+    "address": {
+      "street": "789 Oak Avenue",
+      "region": "North Hills",
+      "city": "Riverdale",
+      "country": "New Zealand"
+    },
+    "gender": "F",
+    "bod": "2002-09-28",
+    "hardwareId": "CF2607746197"
+  },
+  {
+    "id": "GM-2024-03-29-789012",
+    "userName": "MountainExplorer42",
+    "email": "mountainexplorer@gmail.com",
+    "phoneNumber": "98765432109",
+    "firstName": "mountain",
+    "lastName": "explorer",
+    "address": {
+      "street": "789 Oak Avenue",
+      "region": "North Hills",
+      "city": "Riverdale",
+      "country": "New Zealand"
+    },
+    "gender": "F",
+    "bod": "2004-05-28",
+    "hardwareId": "40382986A3BE"
+  },
+  {
+    "id": "GM-2024-03-29-345678",
+    "userName": "TechGuru89",
+    "email": "techguru@gmail.com",
+    "phoneNumber": "87654321098",
+    "firstName": "tech",
+    "lastName": "guru",
+    "address": {
+      "street": "123 Elm Street",
+      "region": "Southside",
+      "city": "Hilltop",
+      "country": "New Zealand"
+    },
+    "gender": "F",
+    "bod": "2007-04-28",
+    "hardwareId": "B14A4B98E5DF"
+  }
+]
