@@ -6,7 +6,6 @@ using HealthCare.PL.DTOs;
 using HealthCare.PL.Helper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Talabat.PL.Controllers;
 
 namespace HealthCare.PL.Controllers
 {

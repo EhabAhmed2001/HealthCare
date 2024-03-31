@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Talabat.PL.Controllers
+namespace HealthCare.PL.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
