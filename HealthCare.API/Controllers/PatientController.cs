@@ -19,6 +19,7 @@ namespace HealthCare.PL.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly ITokenService _token;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0052:Remove unread private members", Justification = "<Pending>")]
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ILogger<PatientController> logger;
 
@@ -31,7 +32,7 @@ namespace HealthCare.PL.Controllers
         }
 
         [HttpPost("PatientRegister")]
-        public async Task<ActionResult<PatientDto>> Register(ObserverRegisterDto Patients)
+        public async Task<ActionResult<PatientDto>> Register(PatientRegisterDto Patients)
         {
 
             var existingUserByEmail = await _userManager.FindByEmailAsync(Patients.Email);
@@ -52,13 +53,9 @@ namespace HealthCare.PL.Controllers
 
             var Patient = new Patient()
             {
-                FirstName = Patients.FirstName,
-                LastName = Patients.LastName,
-                HardwareId = Patients.PatientObserverId,
-                Gender = Patients.Gender,
-                BOD = Patients.BOD,
-                Email = Patients.Email,
                 UserName = Patients.Email.Split('@')[0],
+                HardwareId = Patients.HardwareId,
+                Email = Patients.Email,
                 PhoneNumber = Patients.PhoneNumber,
             };
 
@@ -72,7 +69,7 @@ namespace HealthCare.PL.Controllers
                 {
                     FirstName = Patients.FirstName,
                     LastName = Patients.LastName,
-                    HardwareId = Patients.PatientObserverId,
+                    HardwareId = Patients.HardwareId,
                     Gender = Patients.Gender,
                     BOD = Patients.BOD,
                     PhoneNumber = Patients.PhoneNumber,
