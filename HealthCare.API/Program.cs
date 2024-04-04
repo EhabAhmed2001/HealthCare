@@ -56,6 +56,10 @@ namespace HealthCare.API
 
                 var userManager = service.GetRequiredService<UserManager<AppUser>>();
 
+                var roleManager = service.GetRequiredService<RoleManager<IdentityRole>>();
+
+                await RolesSeed.RolesSeedAsync(roleManager);
+
                 await DataStoreSeed.SeedAsync(DbContext);
 
                 await IdentityStoreSeed.SeedUserAsync(userManager);
