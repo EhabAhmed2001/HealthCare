@@ -7,22 +7,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.VisualBasic;
-using System.Data;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace HealthCare.PL.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class Doctorcontroller : ControllerBase
+
+    public class DoctorController : APIBaseController
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly ITokenService _token;
        
 
-        public Doctorcontroller(UserManager<AppUser> userManager, ITokenService token)
+        public DoctorController(UserManager<AppUser> userManager, ITokenService token)
         {
             _userManager = userManager;
             _token = token;
@@ -48,18 +43,17 @@ namespace HealthCare.PL.Controllers
             var Result = await _userManager.CreateAsync(Doctor, model.Password);
             if (Result.Succeeded)
             {
-                   // Assign the Doctor role to the newly registered user
-                    await _userManager.AddToRoleAsync(Doctor, "Doctor");
-                    
-                    var doctordto = new DoctorDTO()
-                    {
-                        FirstName = model.FirstName,
-                        Email = model.Email,
-                        Role = "Doctor",
-                        Token = await _token.CreateTokenAsync(Doctor),
-                    };
-                    return (doctordto);
-            
+                // Assign the Doctor role to the newly registered user
+                await _userManager.AddToRoleAsync(Doctor, "Doctor");
+
+                var doctordto = new DoctorDTO()
+                {
+                    FirstName = model.FirstName,
+                    Email = model.Email,
+                    Role = "Doctor",
+                    Token = await _token.CreateTokenAsync(Doctor),
+                };
+                return (doctordto);
             }
             BadRequestResult badRequestResult = BadRequest();
             return Ok(badRequestResult);
