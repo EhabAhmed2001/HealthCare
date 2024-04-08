@@ -54,9 +54,14 @@ namespace HealthCare.PL.Controllers
             var Patient = new Patient()
             {
                 UserName = Patients.Email.Split('@')[0],
+                FirstName = Patients.FirstName,
+                LastName = Patients.LastName,
                 HardwareId = Patients.HardwareId,
-                Email = Patients.Email,
+                Gender = Patients.Gender,
+                BOD = Patients.BOD,
                 PhoneNumber = Patients.PhoneNumber,
+                Address = Patients.Address,
+                Email = Patients.Email,
             };
 
             var Result = await _userManager.CreateAsync(Patient, Patients.Password!);
@@ -67,15 +72,9 @@ namespace HealthCare.PL.Controllers
 
                 var PatientDto = new PatientDto()
                 {
-                    FirstName = Patients.FirstName,
-                    LastName = Patients.LastName,
-                    HardwareId = Patients.HardwareId,
-                    Gender = Patients.Gender,
-                    BOD = Patients.BOD,
-                    PhoneNumber = Patients.PhoneNumber,
-                    Address = Patients.Address,
+                    UserName = Patients.UserName,
                     Email = Patients.Email,
-                    Password = Patients.Password,
+                    Role = "Patient",
                     Token = await _token.CreateTokenAsync(Patient)
                 };
                 return Ok(PatientDto);
