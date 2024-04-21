@@ -10,9 +10,9 @@ namespace HealthCare.Core.Entities.Data
 {
     public class SensorsData
     {
-        public int HearRate { get; set; }
-        public int Temperature { get; set; }
-        public int Oxygen { get; set; }
+        public decimal HeartRate { get; set; }
+        public decimal Temperature { get; set; }
+        public decimal Oxygen { get; set; }
         public string ECG { get; set; }
 
     }
