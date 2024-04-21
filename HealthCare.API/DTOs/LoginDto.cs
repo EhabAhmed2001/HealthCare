@@ -8,7 +8,6 @@ namespace HealthCare.PL.DTOs
         [EmailAddress]
         public string Email { get; set; }
 
-
         [Required]
         public string password { get; set; }
         

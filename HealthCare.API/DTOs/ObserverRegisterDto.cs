@@ -3,7 +3,7 @@ using HealthCare.Core.Entities;
 
 namespace HealthCare.PL.Controllers
 {
-    public class PatientRegisterDto
+    public class ObserverRegisterDto
     {
         [Required]
         public string FirstName { get; set; }
@@ -12,16 +12,7 @@ namespace HealthCare.PL.Controllers
         public string LastName { get; set; }
 
         [Required]
-        public string UserName { get; set; }
-
-        [Required]
-        public string HardwareId { get; set; }
-
-        [Required]
-        public char Gender { get; set; }
-
-        [Required]
-        public DateOnly BOD { get; set; }
+        public string PatientObserverId { get; set; }
 
         [Required]
         [Phone]
@@ -35,7 +26,8 @@ namespace HealthCare.PL.Controllers
         public string Email { get; set; }
 
         [Required]
-        public string Password { get; set; }
+        public string password { get; set; }
+
     }
 }
 

@@ -1,12 +1,15 @@
-﻿using HealthCare.Core.Entities;
+﻿using System;
+using HealthCare.Core.Entities;
 
-namespace HealthCare.PL.Controllers
+
+namespace HealthCare.PL.DTOs
 {
-    public class PatientDto
+    public class ObserverDto
     {
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Role { get; set; }
         public string Token { get; set; }
+        
     }
 }
