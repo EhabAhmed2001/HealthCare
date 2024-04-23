@@ -30,59 +30,59 @@ namespace HealthCare.PL.Controllers
             _roleManager = roleManager;
             this.logger = logger;
         }
-
-        [HttpPost("PatientRegister")]
-        public async Task<ActionResult<PatientDto>> Register(PatientRegisterDto Patients)
-        {
-
-            var existingUserByEmail = await _userManager.FindByEmailAsync(Patients.Email);
-
-            if (existingUserByEmail != null)
-            {
-                logger.LogError("Patient with this email Already Exists!");
-                return BadRequest(new { message = "Patient with this email Already Exists!" });
-            }
-
-            var existingUserByPhoneNumber = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == Patients.PhoneNumber);
-
-            if (existingUserByPhoneNumber != null)
-            {
-                logger.LogError("Patient with this phone number Already Exists!");
-                return BadRequest(new { message = "Patient with this phone number Already Exists!" });
-            }
-
-            var Patient = new Patient()
-            {
-                UserName = Patients.Email.Split('@')[0],
-                FirstName = Patients.FirstName,
-                LastName = Patients.LastName,
-                HardwareId = Patients.HardwareId,
-                Gender = Patients.Gender,
-                BOD = Patients.BOD,
-                PhoneNumber = Patients.PhoneNumber,
-                Address = Patients.Address,
-                Email = Patients.Email,
-            };
-
-            var Result = await _userManager.CreateAsync(Patient, Patients.Password!);
-
-            if (Result.Succeeded)
-            {
-                await _userManager.AddToRoleAsync(Patient, "Patient");
-
-                var PatientDto = new PatientDto()
+        /*
+                [HttpPost("PatientRegister")]
+                public async Task<ActionResult<PatientDto>> Register(PatientRegisterDto Patients)
                 {
-                    UserName = Patients.UserName,
-                    Email = Patients.Email,
-                    Role = "Patient",
-                    Token = await _token.CreateTokenAsync(Patient)
-                };
-                return Ok(PatientDto);
-            }
-            else
-            {
-                return BadRequest(Result.Errors);
-            }
-        }
+
+                    var existingUserByEmail = await _userManager.FindByEmailAsync(Patients.Email);
+
+                    if (existingUserByEmail != null)
+                    {
+                        logger.LogError("Patient with this email Already Exists!");
+                        return BadRequest(new { message = "Patient with this email Already Exists!" });
+                    }
+
+                    var existingUserByPhoneNumber = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == Patients.PhoneNumber);
+
+                    if (existingUserByPhoneNumber != null)
+                    {
+                        logger.LogError("Patient with this phone number Already Exists!");
+                        return BadRequest(new { message = "Patient with this phone number Already Exists!" });
+                    }
+
+                    var Patient = new Patient()
+                    {
+                        UserName = Patients.Email.Split('@')[0],
+                        FirstName = Patients.FirstName,
+                        LastName = Patients.LastName,
+                        HardwareId = Patients.HardwareId,
+                        Gender = Patients.Gender,
+                        BOD = Patients.BOD,
+                        PhoneNumber = Patients.PhoneNumber,
+                        Address = Patients.Address,
+                        Email = Patients.Email,
+                    };
+
+                    var Result = await _userManager.CreateAsync(Patient, Patients.Password!);
+
+                    if (Result.Succeeded)
+                    {
+                        await _userManager.AddToRoleAsync(Patient, "Patient");
+
+                        var PatientDto = new PatientDto()
+                        {
+                            UserName = Patients.UserName,
+                            Email = Patients.Email,
+                            Role = "Patient",
+                            Token = await _token.CreateTokenAsync(Patient)
+                        };
+                        return Ok(PatientDto);
+                    }
+                    else
+                    {
+                        return BadRequest(Result.Errors);
+                    }
+    }*/
     }
 }

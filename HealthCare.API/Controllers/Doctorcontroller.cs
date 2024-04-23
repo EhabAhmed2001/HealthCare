@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace HealthCare.PL.Controllers
 {
@@ -26,11 +27,23 @@ namespace HealthCare.PL.Controllers
         }
 
         [HttpPost("Register")]
-
-        public async Task<ActionResult<DoctorDTO>> Register(DoctorRegisterDto model )
+        public async Task<ActionResult<UserToReturnDto>> Register(DoctorRegisterDto model )
         {
+            var existingUserByEmail = await _userManager.FindByEmailAsync(model.Email);
 
-            var Doctor = new AppUser()
+            if (existingUserByEmail != null)
+            {
+                return BadRequest(new { message = "Observer with this email Already Exists!" });
+            }
+
+            var existingUserByPhoneNumber = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == model.PhoneNumber);
+
+            if (existingUserByPhoneNumber != null)
+            {
+                return BadRequest(new { message = "Observer with this phone number Already Exists!" });
+            }
+
+            var Doctor = new Doctor()
             {
                 Email = model.Email,
                 UserName = model.Email.Split('@')[0],
@@ -46,9 +59,9 @@ namespace HealthCare.PL.Controllers
                 // Assign the Doctor role to the newly registered user
                 await _userManager.AddToRoleAsync(Doctor, "Doctor");
 
-                var doctordto = new DoctorDTO()
+                var doctordto = new UserToReturnDto()
                 {
-                    FirstName = model.FirstName,
+                    UserName = Doctor.UserName,
                     Email = model.Email,
                     Role = "Doctor",
                     Token = await _token.CreateTokenAsync(Doctor),
@@ -57,8 +70,8 @@ namespace HealthCare.PL.Controllers
             }
             BadRequestResult badRequestResult = BadRequest();
             return Ok(badRequestResult);
+
         }
-    
         
     }
 }

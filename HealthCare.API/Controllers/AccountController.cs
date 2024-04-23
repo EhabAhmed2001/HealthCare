@@ -23,16 +23,18 @@ namespace HealthCare.PL.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<UserDto>> login(LoginDto model)
+        public async Task<ActionResult<UserToReturnDto>> login(LoginDto model)
         {
             var User = await _userManager.FindByEmailAsync(model.Email);
             if (User is null) return Unauthorized(new { message = "Email Or Password Is Not Correct" });
+
             var Result = await _signInManager.CheckPasswordSignInAsync(User, model.password, false);
             if (!Result.Succeeded) return Unauthorized(new { message = "Email or password is not correct" });
+
             var role = await _userManager.GetRolesAsync(User);
-            return Ok(new UserDto()
+            return Ok(new UserToReturnDto()
             {
-                DisplayName = User.UserName,
+                UserName = User.UserName,
                 Email = User.Email,
                 Token = await token.CreateTokenAsync(User),
                 Role = role[0]

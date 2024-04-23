@@ -27,12 +27,12 @@ namespace HealthCare.PL.Controllers
         }
 
         [HttpPost("ObserverRegister")]
-        public async Task<ActionResult<ObserverDto>> Register(ObserverRegisterDto Observers)
+        public async Task<ActionResult<UserToReturnDto>> Register(ObserverRegisterDto Observers)
         {
             var existingUserByEmail = await _userManager.FindByEmailAsync(Observers.Email);
+
             if (existingUserByEmail != null)
             {
-               
                 return BadRequest(new { message = "Observer with this email Already Exists!" });
             }
 
@@ -40,14 +40,11 @@ namespace HealthCare.PL.Controllers
 
             if (existingUserByPhoneNumber != null)
             {
-             
                 return BadRequest(new { message = "Observer with this phone number Already Exists!" });
             }
-            
+
             var Observer = new Observer()
-
             {
-
                 UserName = Observers.Email.Split('@')[0],
                 Email = Observers.Email,
                 PhoneNumber = Observers.PhoneNumber,
@@ -63,7 +60,7 @@ namespace HealthCare.PL.Controllers
             {
                 await _userManager.AddToRoleAsync(Observer, "Observer");
 
-                var ObserverDto = new ObserverDto()
+                var ObserverDto = new UserToReturnDto()
                 {
                     UserName = Observers.Email.Split('@')[0],
                     Email = Observers.Email,
