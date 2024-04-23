@@ -3,59 +3,43 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using HealthCare.Core.Entities;
 using HealthCare.Core.Entities.identity;
 using Microsoft.AspNetCore.Identity;
-using Newtonsoft.Json;
 
 namespace HealthCare.Repository.Identity
 {
     public static class IdentityStoreSeed
     {
-        private static string[] roles = { "Patient", "Doctor", "Observer" };
-
         public static async Task SeedUserAsync(UserManager<AppUser> userManager)
         {
             if (!userManager.Users.Any())
             {
-                var patientJson = File.ReadAllText("../HealthCare.Repository/Data/DataSeed/Patient.json");
-                var patient = JsonConvert.DeserializeObject<AppUser>(patientJson);
+                var patientJson = File.ReadAllText("../HealthCare.Repository/Identity/DataSeed/Patient.json");
+                var patient = JsonSerializer.Deserialize<List<Patient>>(patientJson);
 
-                var doctorJson = File.ReadAllText("../HealthCare.Repository/Data/DataSeed/Doctor.json");
-                var doctor = JsonConvert.DeserializeObject<AppUser>(doctorJson);
+                var doctorJson = File.ReadAllText("../HealthCare.Repository/Identity/DataSeed/Doctor.json");
+                var doctor = JsonSerializer.Deserialize<List<Doctor>>(doctorJson);
 
-                var observerJson = File.ReadAllText("../HealthCare.Repository/Data/DataSeed/Observer.json");
-                var observer = JsonConvert.DeserializeObject<AppUser>(observerJson);
+                var observerJson = File.ReadAllText("../HealthCare.Repository/Identity/DataSeed/Observer.json");
+                var observer = JsonSerializer.Deserialize<List<Observer>>(observerJson);
 
-                var users = new List<AppUser> { patient, doctor, observer };
+                await TransferData(patient, "Patient", userManager);
+                await TransferData(doctor, "Doctor", userManager);
+                await TransferData(observer, "Observer", userManager);
+            }
+        }
 
-                foreach (var user in users)
+        private static async Task TransferData<T> (List<T> users, string Role, UserManager<AppUser> userManager) where T : AppUser
+        {
+            foreach (var user in users)
+            {
+                var createUserResult = await userManager.CreateAsync(user, "P@ssw0rd");
+                if (createUserResult.Succeeded)
                 {
-                    user.Address = new HealthCare.Core.Entities.Address
-                    {
-                        Street = user.Address.Street,
-                        Region = user.Address.Region,
-                        City = user.Address.City,
-                        Country = user.Address.Country
-                    };
-
-                    var createUserResult = await userManager.CreateAsync(user, "P@ssw0rd");
-                    if (createUserResult.Succeeded)
-                    {
-                        var roleResult = await userManager.AddToRoleAsync(user, roles[0]);
-                        if (roleResult.Succeeded)
-                        {
-                            Console.WriteLine($"Created user {user.UserName} with role {roles[0]}");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Failed to assign role to user {user.UserName}: {string.Join(", ", roleResult.Errors.Select(e => e.Description))}");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Failed to create user {user.UserName}: {string.Join(", ", createUserResult.Errors.Select(e => e.Description))}");
-                    }
+                    await userManager.AddToRoleAsync(user, Role);
                 }
             }
         }
