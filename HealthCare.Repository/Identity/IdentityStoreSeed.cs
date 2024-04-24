@@ -19,15 +19,16 @@ namespace HealthCare.Repository.Identity
             {
                 var patientJson = File.ReadAllText("../HealthCare.Repository/Identity/DataSeed/Patient.json");
                 var patient = JsonSerializer.Deserialize<List<Patient>>(patientJson);
+                await TransferData(patient, "Patient", userManager);
+
 
                 var doctorJson = File.ReadAllText("../HealthCare.Repository/Identity/DataSeed/Doctor.json");
                 var doctor = JsonSerializer.Deserialize<List<Doctor>>(doctorJson);
+                await TransferData(doctor, "Doctor", userManager);
+
 
                 var observerJson = File.ReadAllText("../HealthCare.Repository/Identity/DataSeed/Observer.json");
                 var observer = JsonSerializer.Deserialize<List<Observer>>(observerJson);
-
-                await TransferData(patient, "Patient", userManager);
-                await TransferData(doctor, "Doctor", userManager);
                 await TransferData(observer, "Observer", userManager);
             }
         }
