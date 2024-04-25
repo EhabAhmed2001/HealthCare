@@ -1,11 +1,18 @@
-﻿using HealthCare.Core.Entities.identity;
+﻿using HealthCare.Core.Entities;
+using HealthCare.Core.Entities.identity;
 using HealthCare.Core.Services;
 using HealthCare.PL.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Data;
+using System.Security.Claims;
+
 
 namespace HealthCare.PL.Controllers
 {
@@ -41,6 +48,79 @@ namespace HealthCare.PL.Controllers
             });
 
         }
-        
+
+
+        // Get Current User
+
+        [HttpGet("GetCurrentUser")]
+        public async Task<ActionResult<UserDto>> GetCurrentUser()
+        {
+            var Email = User.FindFirstValue(ClaimTypes.Email);
+            if (Email is null)
+            {
+                return BadRequest(new {message= "There is no active users."});
+            }
+            var user = await _userManager.FindByEmailAsync(Email);
+
+
+            var role = await _userManager.GetRolesAsync(user);
+
+            if (role.Contains("Patient"))
+            {
+                var CurrentPatient = (Patient)user;
+                var PatientToReturn = new CurrentPatientDto()
+                {
+                    Email = CurrentPatient.Email,
+                    UserName = CurrentPatient.UserName,
+                    FisrtName = CurrentPatient.FirstName,
+                    LastName = CurrentPatient.LastName,
+                    Address = CurrentPatient.Address,
+                    PhoneNamber = CurrentPatient.PhoneNumber,
+                    Gender = CurrentPatient.Gender,
+                    BOD = CurrentPatient.BOD,
+                    PictureUrl = CurrentPatient.PictureUrl,
+
+                };
+
+                return Ok(PatientToReturn);
+            }
+            else if (role.Contains("Doctor"))
+            {
+                var CurrentDoctor = (Doctor)user;
+                var DoctorToReturn = new CurrentDoctorDto()
+                {
+                    Email = CurrentDoctor.Email,
+                    UserName = CurrentDoctor.UserName,
+                    FisrtName = CurrentDoctor.FirstName,
+                    LastName = CurrentDoctor.LastName,
+                    Address = CurrentDoctor.Address,
+                    PhoneNamber = CurrentDoctor.PhoneNumber,
+                    PictureUrl = CurrentDoctor.PictureUrl,
+                };
+                return Ok(DoctorToReturn);
+
+            }
+            else
+            {
+                var CurrentObserver = (Observer)user;
+                var ObserverToReturn = new CurrentObserverDto()
+                {
+                    Email = CurrentObserver.Email,
+                    UserName = CurrentObserver.UserName,
+                    FisrtName = CurrentObserver.FirstName,
+                    LastName = CurrentObserver.LastName,
+                    Address = CurrentObserver.Address,
+                    PhoneNamber = CurrentObserver.PhoneNumber,
+                    PictureUrl = CurrentObserver.PictureUrl,
+                };
+                return Ok(ObserverToReturn);
+
+            }
+
+
+
+        }
+
+
     }
 }
