@@ -1,450 +1,450 @@
 [
   {
     "UserData": {
-      "heartRate": 72.0,
-      "temperature": 37.0,
-      "oxygen": 97.0,
-      "ecg": "94,68,84,90,80,68,83,80,100,71"
+      "HeartRate": 72.0,
+      "Temperature": 37.0,
+      "Oxygen": 97.0,
+      "ECG": "94,68,84,90,80,68,83,80,100,71"
     },
-    "actions": "Prescribed rest and hydration",
-    "measureDate": "2024-04-21T11:11:20.047Z",
-    "historyPatientId": "GN-2024-03-29-1234"
+    "Actions": "Prescribed rest and hydration",
+    "MeasureDate": "2024-04-21T11:11:20.047Z",
+    "HistoryPatientId": "GN-2024-03-29-1234"
   },
   {
 
     "UserData": {
-      "heartRate": 80.0,
-      "temperature": 37.3,
-      "oxygen": 95.0,
-      "ecg": "92,70,85,88,82,69,80,79,98,70"
+      "HeartRate": 80.0,
+      "Temperature": 37.3,
+      "Oxygen": 95.0,
+      "ECG": "92,70,85,88,82,69,80,79,98,70"
     },
-    "actions": "Recommended follow-up with a specialist",
-    "measureDate": "2024-04-21T11:11:20.047Z",
-    "historyPatientId": "GD-2024-03-29-5678"
+    "Actions": "Recommended follow-up with a specialist",
+    "MeasureDate": "2024-04-21T11:11:20.047Z",
+    "HistoryPatientId": "GD-2024-03-29-5678"
   },
   {
     "UserData": {
-      "heartRate": 75.0,
-      "temperature": 36.9,
-      "oxygen": 96.0,
-      "ecg": "96,69,83,89,79,67,84,82,102,70"
+      "HeartRate": 75.0,
+      "Temperature": 36.9,
+      "Oxygen": 96.0,
+      "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "actions": "Advised lifestyle changes and regular exercise",
-    "measureDate": "2024-04-21T11:11:20.047Z",
-    "historyPatientId": "GT-2024-03-29-91011"
+    "Actions": "Advised lifestyle changes and regular exercise",
+    "MeasureDate": "2024-04-21T11:11:20.047Z",
+    "HistoryPatientId": "GT-2024-03-29-91011"
   },
   {
     "UserData": {
-      "heartRate": 78.0,
-      "temperature": 37.1,
-      "oxygen": 94.0,
-      "ecg": "93,67,86,91,81,70,82,81,99,72"
+      "HeartRate": 78.0,
+      "Temperature": 37.1,
+      "Oxygen": 94.0,
+      "ECG": "93,67,86,91,81,70,82,81,99,72"
     },
-    "actions": "Scheduled additional tests for further evaluation",
-    "measureDate": "2024-04-21T11:11:20.047Z",
-    "historyPatientId": "GQ-2024-03-29-121314"
+    "Actions": "Scheduled additional tests for further evaluation",
+    "MeasureDate": "2024-04-21T11:11:20.047Z",
+    "HistoryPatientId": "GQ-2024-03-29-121314"
   },
   {
     "UserData": {
-      "heartRate": 68.0,
-      "temperature": 36.5,
-      "oxygen": 96.0,
-      "ecg": "94,68,84,90,80,68,83,80,100,71"
+      "HeartRate": 68.0,
+      "Temperature": 36.5,
+      "Oxygen": 96.0,
+      "ECG": "94,68,84,90,80,68,83,80,100,71"
     },
-    "actions": "Administered medication for fever",
-    "measureDate": "2024-04-21T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-151617"
+    "Actions": "Administered medication for fever",
+    "MeasureDate": "2024-04-21T11:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-151617"
   },
   {
     "UserData": {
-      "heartRate": 78.0,
-      "temperature": 37.8,
-      "oxygen": 93.0,
-      "ecg": "92,70,85,88,82,69,80,79,98,70"
+      "HeartRate": 78.0,
+      "Temperature": 37.8,
+      "Oxygen": 93.0,
+      "ECG": "92,70,85,88,82,69,80,79,98,70"
     },
-    "actions": "Scheduled additional tests for heart condition",
-    "measureDate": "2024-04-21T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-084512"
+    "Actions": "Scheduled additional tests for heart condition",
+    "MeasureDate": "2024-04-21T11:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-084512"
   },
   {
     "UserData": {
-      "heartRate": 65.0,
-      "temperature": 36.9,
-      "oxygen": 98.0,
-      "ecg": "94,68,84,90,80,68,83,80,100,71"
+      "HeartRate": 65.0,
+      "Temperature": 36.9,
+      "Oxygen": 98.0,
+      "ECG": "94,68,84,90,80,68,83,80,100,71"
     },
-    "actions": "Scheduled follow-up appointment for general check-up",
-    "measureDate": "2024-04-21T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-235959"
+    "Actions": "Scheduled follow-up appointment for general check-up",
+    "MeasureDate": "2024-04-21T11:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-235959"
   },
   {
     "UserData": {
-      "heartRate": 82.0,
-      "temperature": 37.5,
-      "oxygen": 94.0,
-      "ecg": "92,70,85,88,82,69,80,79,98,70"
+      "HeartRate": 82.0,
+      "Temperature": 37.5,
+      "Oxygen": 94.0,
+      "ECG": "92,70,85,88,82,69,80,79,98,70"
     },
-    "actions": "Advised dietary changes and regular exercise",
-    "measureDate": "2024-04-21T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-123456"
+    "Actions": "Advised dietary changes and regular exercise",
+    "MeasureDate": "2024-04-21T11:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-123456"
   },
   {
     "UserData": {
-      "heartRate": 70.0,
-      "temperature": 37.2,
-      "oxygen": 97.0,
-      "ecg": "96,69,83,89,79,67,84,82,102,70"
+      "HeartRate": 70.0,
+      "Temperature": 37.2,
+      "Oxygen": 97.0,
+      "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "actions": "Prescribed antibiotics for infection",
-    "measureDate": "2024-04-21T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-789012"
+    "Actions": "Prescribed antibiotics for infection",
+    "MeasureDate": "2024-04-21T11:11:20.047Z",
+    "HistoryPatientId": "GT-2024-03-29-91011"
   },
   {
     "UserData": {
-      "heartRate": 75.0,
-      "temperature": 37.0,
-      "oxygen": 96.0,
-      "ecg": "93,67,86,91,81,70,82,81,99,72"
+      "HeartRate": 75.0,
+      "Temperature": 37.0,
+      "Oxygen": 96.0,
+      "ECG": "93,67,86,91,81,70,82,81,99,72"
     },
-    "actions": "consult your doctor",
-    "measureDate": "2024-04-21T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-345678"
-  },
-
-  {
-    "UserData": {
-      "heartRate": 70.0,
-      "temperature": 38.0,
-      "oxygen": 96.0,
-      "ecg": "94,68,84,90,80,68,81,80,100,71"
-    },
-    "actions": "Take a fever reducer",
-    "measureDate": "2024-04-22T10:11:20.047Z",
-    "historyPatientId": "GN-2024-03-29-1234"
-  },
-  {
-
-    "UserData": {
-      "heartRate": 68.0,
-      "temperature": 36.6,
-      "oxygen": 98.0,
-      "ecg": "94,68,84,90,80,68,83,80,100,71"
-    },
-    "actions": "Routine check-up, all parameters within normal range",
-    "measureDate": "2024-04-22T10:11:20.047Z",
-    "historyPatientId": "GD-2024-03-29-5678"
-  },
-  {
-    "UserData": {
-      "heartRate": 85.0,
-      "temperature": 38.5,
-      "oxygen": 91.0,
-      "ecg": "92,70,85,88,82,69,80,79,98,70"
-    },
-    "actions": "Contact doctor urgently, high fever and low oxygen levels",
-    "measureDate": "2024-04-22T10:11:20.047Z",
-    "historyPatientId": "GT-2024-03-29-91011"
-  },
-  {
-    "UserData": {
-      "heartRate": 70.0,
-      "temperature": 37.0,
-      "oxygen": 97.0,
-      "ecg": "96,69,83,89,79,67,84,82,102,70"
-    },
-    "actions": "Prescribed medication for mild flu symptoms",
-    "measureDate": "2024-04-22T10:11:20.047Z",
-    "historyPatientId": "GQ-2024-03-29-121314"
-  },
-  {
-    "UserData": {
-      "heartRate": 72.0,
-      "temperature": 37.3,
-      "oxygen": 97.0,
-      "ecg": "92,68,84,90,80,68,83,80,100,71"
-    },
-    "actions": "Prescribed rest and hydration",
-    "measureDate": "2024-04-22T10:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-151617"
-  },
-  {
-    "UserData": {
-      "heartRate": 72.0,
-      "temperature": 37.0,
-      "oxygen": 98.0,
-      "ecg": "94,68,84,91,80,68,83,80,100,71"
-    },
-    "actions": "No action required at this time",
-    "measureDate": "2024-04-22T10:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-084512"
-  },
-  {
-    "UserData": {
-      "heartRate": 68.0,
-      "temperature": 36.2,
-      "oxygen": 97.0,
-      "ecg": "92,68,84,90,80,68,83,80,100,71"
-    },
-    "actions": "Temperature is slightly low",
-    "measureDate": "2024-04-22T10:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-235959"
-  },
-  {
-    "UserData": {
-      "heartRate": 70.0,
-      "temperature": 37.2,
-      "oxygen": 97.0,
-      "ecg": "96,69,83,89,79,67,84,82,102,70"
-    },
-    "actions": "Advised warm compress for muscle soreness",
-    "measureDate": "2024-04-22T10:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-123456"
-  },
-  {
-    "UserData": {
-      "heartRate": 73.0,
-      "temperature": 37.1,
-      "oxygen": 98.0,
-      "ecg": "94,68,84,94,80,68,83,80,100,71"
-    },
-    "actions": "No action required at this time",
-    "measureDate": "2024-04-22T10:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-789012"
-  },
-  {
-    "UserData": {
-      "heartRate": 78.0,
-      "temperature": 37.3,
-      "oxygen": 95.0,
-      "ecg": "93,67,86,91,81,70,82,81,99,72"
-    },
-    "actions": "Recommended deep breathing exercises for stress relief",
-    "measureDate": "2024-04-22T10:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-345678"
+    "Actions": "consult your doctor",
+    "MeasureDate": "2024-04-21T11:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-235959"
   },
 
   {
     "UserData": {
-      "heartRate": 85.0,
-      "temperature": 38.6,
-      "oxygen": 91.0,
-      "ecg": "92,70,85,88,82,69,80,78,98,70"
+      "HeartRate": 70.0,
+      "Temperature": 38.0,
+      "Oxygen": 96.0,
+      "ECG": "94,68,84,90,80,68,81,80,100,71"
     },
-    "actions": "Contact doctor urgently, high fever and low oxygen levels",
-    "measureDate": "2024-04-23T11:10:20.047Z",
-    "historyPatientId": "GN-2024-03-29-1234"
+    "Actions": "Take a fever reducer",
+    "MeasureDate": "2024-04-22T10:11:20.047Z",
+    "HistoryPatientId": "GN-2024-03-29-1234"
   },
   {
 
     "UserData": {
-      "heartRate": 72.0,
-      "temperature": 37.1,
-      "oxygen": 97.0,
-      "ecg": "96,69,83,89,79,67,84,82,102,70"
+      "HeartRate": 68.0,
+      "Temperature": 36.6,
+      "Oxygen": 98.0,
+      "ECG": "94,68,84,90,80,68,83,80,100,71"
     },
-    "actions": "Prescribed medication for mild flu symptoms",
-    "measureDate": "2024-04-23T11:10:20.047Z",
-    "historyPatientId": "GD-2024-03-29-5678"
+    "Actions": "Routine check-up, all parameters within normal range",
+    "MeasureDate": "2024-04-22T10:11:20.047Z",
+    "HistoryPatientId": "GD-2024-03-29-5678"
   },
   {
     "UserData": {
-      "heartRate": 70.0,
-      "temperature": 37.0,
-      "oxygen": 96.0,
-      "ecg": "94,68,84,90,80,68,83,80,100,71"
+      "HeartRate": 85.0,
+      "Temperature": 38.5,
+      "Oxygen": 91.0,
+      "ECG": "92,70,85,88,82,69,80,79,98,70"
     },
-    "actions": "Advised to increase fluid intake for hydration",
-    "measureDate": "2024-04-23T11:10:20.047Z",
-    "historyPatientId": "GT-2024-03-29-91011"
+    "Actions": "Contact doctor urgently, high fever and low Oxygen levels",
+    "MeasureDate": "2024-04-22T10:11:20.047Z",
+    "HistoryPatientId": "GT-2024-03-29-91011"
   },
   {
     "UserData": {
-      "heartRate": 85.0,
-      "temperature": 37.0,
-      "oxygen": 93.0,
-      "ecg": "96,69,83,89,79,67,84,82,102,70"
+      "HeartRate": 70.0,
+      "Temperature": 37.0,
+      "Oxygen": 97.0,
+      "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "actions": "Advised to take a break and rest",
-    "measureDate": "2024-04-23T11:10:20.047Z",
-    "historyPatientId": "GQ-2024-03-29-121314"
+    "Actions": "Prescribed medication for mild flu symptoms",
+    "MeasureDate": "2024-04-22T10:11:20.047Z",
+    "HistoryPatientId": "GQ-2024-03-29-121314"
   },
   {
     "UserData": {
-      "heartRate": 68.0,
-      "temperature": 36.0,
-      "oxygen": 97.0,
-      "ecg": "92,68,84,91,80,68,83,81,100,71"
+      "HeartRate": 72.0,
+      "Temperature": 37.3,
+      "Oxygen": 97.0,
+      "ECG": "92,68,84,90,80,68,83,80,100,71"
     },
-    "actions": "Temperature is slightly low",
-    "measureDate": "2024-04-23T11:10:20.047Z",
-    "historyPatientId": "GM-2024-03-29-151617"
+    "Actions": "Prescribed rest and hydration",
+    "MeasureDate": "2024-04-22T10:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-151617"
   },
   {
     "UserData": {
-      "heartRate": 78.0,
-      "temperature": 37.6,
-      "oxygen": 94.0,
-      "ecg": "93,67,86,91,81,70,82,81,94,72"
+      "HeartRate": 72.0,
+      "Temperature": 37.0,
+      "Oxygen": 98.0,
+      "ECG": "94,68,84,91,80,68,83,80,100,71"
     },
-    "actions": "Scheduled additional tests for further evaluation",
-    "measureDate": "2024-04-23T11:10:20.047Z",
-    "historyPatientId": "GM-2024-03-29-084512"
+    "Actions": "No action required at this time",
+    "MeasureDate": "2024-04-22T10:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-084512"
   },
   {
     "UserData": {
-      "heartRate": 70.0,
-      "temperature": 37.3,
-      "oxygen": 97.0,
-      "ecg": "96,69,83,84,79,67,84,82,103,70"
+      "HeartRate": 68.0,
+      "Temperature": 36.2,
+      "Oxygen": 97.0,
+      "ECG": "92,68,84,90,80,68,83,80,100,71"
     },
-    "actions": "Advised warm compress for muscle soreness",
-    "measureDate": "2024-04-23T11:10:20.047Z",
-    "historyPatientId": "GM-2024-03-29-235959"
+    "Actions": "Temperature is slightly low",
+    "MeasureDate": "2024-04-22T10:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-235959"
   },
   {
     "UserData": {
-      "heartRate": 62.0,
-      "temperature": 37.0,
-      "oxygen": 97.0,
-      "ecg": "93,67,86,91,81,70,82,81,99,72"
+      "HeartRate": 70.0,
+      "Temperature": 37.2,
+      "Oxygen": 97.0,
+      "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "actions": "Suggested dietary changes for better heart health",
-    "measureDate": "2024-04-23T11:10:20.047Z",
-    "historyPatientId": "GM-2024-03-29-123456"
+    "Actions": "Advised warm compress for muscle soreness",
+    "MeasureDate": "2024-04-22T10:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-123456"
   },
   {
     "UserData": {
-      "heartRate": 72.0,
-      "temperature": 37.0,
-      "oxygen": 98.0,
-      "ecg": "94,68,84,91,80,68,83,80,100,71"
+      "HeartRate": 73.0,
+      "Temperature": 37.1,
+      "Oxygen": 98.0,
+      "ECG": "94,68,84,94,80,68,83,80,100,71"
     },
-    "actions": "No action required at this time",
-    "measureDate": "2024-04-23T11:10:20.047Z",
-    "historyPatientId": "GM-2024-03-29-789012"
+    "Actions": "No action required at this time",
+    "MeasureDate": "2024-04-22T10:11:20.047Z",
+    "HistoryPatientId": "GQ-2024-03-29-121314"
   },
   {
     "UserData": {
-      "heartRate": 78.0,
-      "temperature": 37.6,
-      "oxygen": 93.0,
-      "ecg": "92,70,85,85,82,69,80,79,97,70"
+      "HeartRate": 78.0,
+      "Temperature": 37.3,
+      "Oxygen": 95.0,
+      "ECG": "93,67,86,91,81,70,82,81,99,72"
     },
-    "actions": "Scheduled additional tests for heart condition",
-    "measureDate": "2024-04-23T11:10:20.047Z",
-    "historyPatientId": "GM-2024-03-29-345678"
+    "Actions": "Recommended deep breathing exercises for stress relief",
+    "MeasureDate": "2024-04-22T10:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-123456"
   },
 
   {
     "UserData": {
-      "heartRate": 77.0,
-      "temperature": 37.7,
-      "oxygen": 94.0,
-      "ecg": "91,70,85,84,82,69,80,79,98,70"
+      "HeartRate": 85.0,
+      "Temperature": 38.6,
+      "Oxygen": 91.0,
+      "ECG": "92,70,85,88,82,69,80,78,98,70"
     },
-    "actions": "Scheduled additional tests for heart condition",
-    "measureDate": "2024-04-24T11:11:20.047Z",
-    "historyPatientId": "GN-2024-03-29-1234"
+    "Actions": "Contact doctor urgently, high fever and low Oxygen levels",
+    "MeasureDate": "2024-04-23T11:10:20.047Z",
+    "HistoryPatientId": "GN-2024-03-29-1234"
   },
   {
 
     "UserData": {
-      "heartRate": 78.0,
-      "temperature": 37.4,
-      "oxygen": 94.0,
-      "ecg": "93,65,86,91,82,71,82,81,99,72"
+      "HeartRate": 72.0,
+      "Temperature": 37.1,
+      "Oxygen": 97.0,
+      "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "actions": "Scheduled additional tests for further evaluation",
-    "measureDate": "2024-04-24T11:11:20.047Z",
-    "historyPatientId": "GD-2024-03-29-5678"
+    "Actions": "Prescribed medication for mild flu symptoms",
+    "MeasureDate": "2024-04-23T11:10:20.047Z",
+    "HistoryPatientId": "GD-2024-03-29-5678"
   },
   {
     "UserData": {
-      "heartRate": 72.0,
-      "temperature": 37.0,
-      "oxygen": 98.0,
-      "ecg": "94,68,84,91,80,68,83,80,100,71"
+      "HeartRate": 70.0,
+      "Temperature": 37.0,
+      "Oxygen": 96.0,
+      "ECG": "94,68,84,90,80,68,83,80,100,71"
     },
-    "actions": "No action required at this time",
-    "measureDate": "2024-04-24T11:11:20.047Z",
-    "historyPatientId": "GT-2024-03-29-91011"
+    "Actions": "Advised to increase fluid intake for hydration",
+    "MeasureDate": "2024-04-23T11:10:20.047Z",
+    "HistoryPatientId": "GT-2024-03-29-91011"
   },
   {
     "UserData": {
-      "heartRate": 78.0,
-      "temperature": 37.4,
-      "oxygen": 95.0,
-      "ecg": "93,65,86,91,81,72,82,81,99,72"
+      "HeartRate": 85.0,
+      "Temperature": 37.0,
+      "Oxygen": 93.0,
+      "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "actions": "Recommended deep breathing exercises for stress relief",
-    "measureDate": "2024-04-24T11:11:20.047Z",
-    "historyPatientId": "GQ-2024-03-29-121314"
+    "Actions": "Advised to take a break and rest",
+    "MeasureDate": "2024-04-23T11:10:20.047Z",
+    "HistoryPatientId": "GQ-2024-03-29-121314"
   },
   {
     "UserData": {
-      "heartRate": 70.0,
-      "temperature": 37.1,
-      "oxygen": 97.0,
-      "ecg": "96,69,82,89,79,67,84,82,102,70"
+      "HeartRate": 68.0,
+      "Temperature": 36.0,
+      "Oxygen": 97.0,
+      "ECG": "92,68,84,91,80,68,83,81,100,71"
     },
-    "actions": "Advised warm compress for muscle soreness",
-    "measureDate": "2024-04-24T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-151617"
+    "Actions": "Temperature is slightly low",
+    "MeasureDate": "2024-04-23T11:10:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-151617"
   },
   {
     "UserData": {
-      "heartRate": 68.0,
-      "temperature": 36.1,
-      "oxygen": 97.0,
-      "ecg": "92,68,84,90,80,68,83,80,100,71"
+      "HeartRate": 78.0,
+      "Temperature": 37.6,
+      "Oxygen": 94.0,
+      "ECG": "93,67,86,91,81,70,82,81,94,72"
     },
-    "actions": "Temperature is slightly low",
-    "measureDate": "2024-04-24T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-084512"
+    "Actions": "Scheduled additional tests for further evaluation",
+    "MeasureDate": "2024-04-23T11:10:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-084512"
   },
   {
     "UserData": {
-      "heartRate": 80.0,
-      "temperature": 37.1,
-      "oxygen": 95.0,
-      "ecg": "92,70,85,88,82,69,80,79,98,70"
+      "HeartRate": 70.0,
+      "Temperature": 37.3,
+      "Oxygen": 97.0,
+      "ECG": "96,69,83,84,79,67,84,82,103,70"
     },
-    "actions": "Recommended follow-up with a specialist",
-    "measureDate": "2024-04-24T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-235959"
+    "Actions": "Advised warm compress for muscle soreness",
+    "MeasureDate": "2024-04-23T11:10:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-235959"
   },
   {
     "UserData": {
-      "heartRate": 72.0,
-      "temperature": 37.2,
-      "oxygen": 97.0,
-      "ecg": "94,66,84,90,80,68,83,80,100,71"
+      "HeartRate": 62.0,
+      "Temperature": 37.0,
+      "Oxygen": 97.0,
+      "ECG": "93,67,86,91,81,70,82,81,99,72"
     },
-    "actions": "Prescribed rest and hydration",
-    "measureDate": "2024-04-24T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-123456"
+    "Actions": "Suggested dietary changes for better heart health",
+    "MeasureDate": "2024-04-23T11:10:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-123456"
   },
   {
     "UserData": {
-      "heartRate": 70.0,
-      "temperature": 37.2,
-      "oxygen": 97.0,
-      "ecg": "96,69,80,89,79,67,84,82,102,70"
+      "HeartRate": 72.0,
+      "Temperature": 37.0,
+      "Oxygen": 98.0,
+      "ECG": "94,68,84,91,80,68,83,80,100,71"
     },
-    "actions": "Prescribed medication for mild flu symptoms",
-    "measureDate": "2024-04-24T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-789012"
+    "Actions": "No action required at this time",
+    "MeasureDate": "2024-04-23T11:10:20.047Z",
+    "HistoryPatientId": "GN-2024-03-29-1234"
   },
   {
     "UserData": {
-      "heartRate": 86.0,
-      "temperature": 38.4,
-      "oxygen": 90.0,
-      "ecg": "92,70,85,86,82,69,80,79,98,70"
+      "HeartRate": 78.0,
+      "Temperature": 37.6,
+      "Oxygen": 93.0,
+      "ECG": "92,70,85,85,82,69,80,79,97,70"
     },
-    "actions": "Contact doctor urgently, high fever and low oxygen levels",
-    "measureDate": "2024-04-24T11:11:20.047Z",
-    "historyPatientId": "GM-2024-03-29-345678"
+    "Actions": "Scheduled additional tests for heart condition",
+    "MeasureDate": "2024-04-23T11:10:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-151617"
+  },
+
+  {
+    "UserData": {
+      "HeartRate": 77.0,
+      "Temperature": 37.7,
+      "Oxygen": 94.0,
+      "ECG": "91,70,85,84,82,69,80,79,98,70"
+    },
+    "Actions": "Scheduled additional tests for heart condition",
+    "MeasureDate": "2024-04-24T11:11:20.047Z",
+    "HistoryPatientId": "GN-2024-03-29-1234"
+  },
+  {
+
+    "UserData": {
+      "HeartRate": 78.0,
+      "Temperature": 37.4,
+      "Oxygen": 94.0,
+      "ECG": "93,65,86,91,82,71,82,81,99,72"
+    },
+    "Actions": "Scheduled additional tests for further evaluation",
+    "MeasureDate": "2024-04-24T11:11:20.047Z",
+    "HistoryPatientId": "GD-2024-03-29-5678"
+  },
+  {
+    "UserData": {
+      "HeartRate": 72.0,
+      "Temperature": 37.0,
+      "Oxygen": 98.0,
+      "ECG": "94,68,84,91,80,68,83,80,100,71"
+    },
+    "Actions": "No action required at this time",
+    "MeasureDate": "2024-04-24T11:11:20.047Z",
+    "HistoryPatientId": "GT-2024-03-29-91011"
+  },
+  {
+    "UserData": {
+      "HeartRate": 78.0,
+      "Temperature": 37.4,
+      "Oxygen": 95.0,
+      "ECG": "93,65,86,91,81,72,82,81,99,72"
+    },
+    "Actions": "Recommended deep breathing exercises for stress relief",
+    "MeasureDate": "2024-04-24T11:11:20.047Z",
+    "HistoryPatientId": "GQ-2024-03-29-121314"
+  },
+  {
+    "UserData": {
+      "HeartRate": 70.0,
+      "Temperature": 37.1,
+      "Oxygen": 97.0,
+      "ECG": "96,69,82,89,79,67,84,82,102,70"
+    },
+    "Actions": "Advised warm compress for muscle soreness",
+    "MeasureDate": "2024-04-24T11:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-151617"
+  },
+  {
+    "UserData": {
+      "HeartRate": 68.0,
+      "Temperature": 36.1,
+      "Oxygen": 97.0,
+      "ECG": "92,68,84,90,80,68,83,80,100,71"
+    },
+    "Actions": "Temperature is slightly low",
+    "MeasureDate": "2024-04-24T11:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-084512"
+  },
+  {
+    "UserData": {
+      "HeartRate": 80.0,
+      "Temperature": 37.1,
+      "Oxygen": 95.0,
+      "ECG": "92,70,85,88,82,69,80,79,98,70"
+    },
+    "Actions": "Recommended follow-up with a specialist",
+    "MeasureDate": "2024-04-24T11:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-235959"
+  },
+  {
+    "UserData": {
+      "HeartRate": 72.0,
+      "Temperature": 37.2,
+      "Oxygen": 97.0,
+      "ECG": "94,66,84,90,80,68,83,80,100,71"
+    },
+    "Actions": "Prescribed rest and hydration",
+    "MeasureDate": "2024-04-24T11:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-123456"
+  },
+  {
+    "UserData": {
+      "HeartRate": 70.0,
+      "Temperature": 37.2,
+      "Oxygen": 97.0,
+      "ECG": "96,69,80,89,79,67,84,82,102,70"
+    },
+    "Actions": "Prescribed medication for mild flu symptoms",
+    "MeasureDate": "2024-04-24T11:11:20.047Z",
+    "HistoryPatientId": "GD-2024-03-29-5678"
+  },
+  {
+    "UserData": {
+      "HeartRate": 86.0,
+      "Temperature": 38.4,
+      "Oxygen": 90.0,
+      "ECG": "92,70,85,86,82,69,80,79,98,70"
+    },
+    "Actions": "Contact doctor urgently, high fever and low Oxygen levels",
+    "MeasureDate": "2024-04-24T11:11:20.047Z",
+    "HistoryPatientId": "GM-2024-03-29-084512"
   }
 
 ]

@@ -60,9 +60,11 @@ namespace HealthCare.API
 
                 await RolesSeed.RolesSeedAsync(roleManager);
 
-                await DataStoreSeed.SeedAsync(DbContext);
+                await DataStoreSeed.SeedAsync(DbContext, userManager);
 
-                await IdentityStoreSeed.SeedUserAsync(userManager);
+                await IdentityStoreSeed.SeedUserAsync(userManager, DbContext);
+
+                await DataStoreSeed.SeedAsync(DbContext, userManager);
 
             }
             catch (Exception ex)

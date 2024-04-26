@@ -14,7 +14,8 @@
     },
     "Gender": "M",
     "BOD": "1997-07-28",
-    "HardwareId": "F2AA9B1CDD5E"
+    "HardwareId": "F2AA9B1CDD5E",
+    "PatientDoctorId": "ac117b92-782b-444b-9842-1b872391e0c7"
   },
   {
     "Id": "GD-2024-03-29-5678",
@@ -32,7 +33,8 @@
     },
     "Gender": "F",
     "BOD": "1980-10-01",
-    "HardwareId": "3C4E782BAFF0"
+    "HardwareId": "3C4E782BAFF0",
+    "PatientDoctorId": "ac117b92-782b-444b-9842-1b872391e0c7"
   },
   {
     "Id": "GT-2024-03-29-91011",
@@ -49,7 +51,8 @@
     },
     "Gender": "F",
     "BOD": "1977-09-03",
-    "HardwareId": "A15BDF3987DE"
+    "HardwareId": "A15BDF3987DE",
+    "PatientDoctorId": "d278e2f3-b9a0-441e-b87d-c5b921784e2a"
   },
   {
     "Id": "GQ-2024-03-29-121314",
@@ -66,7 +69,9 @@
     },
     "Gender": "M",
     "BOD": "1966-07-28",
-    "HardwareId": "162D0F51CBE9"
+    "HardwareId": "162D0F51CBE9",
+    "PatientDoctorId": "68c9dcab-a08e-4d7e-a781-278c127b091f"
+
   },
   {
     "Id": "GM-2024-03-29-151617",
@@ -83,7 +88,9 @@
     },
     "Gender": "F",
     "BOD": "1998-12-28",
-    "HardwareId": "7E9FA1CD0321"
+    "HardwareId": "7E9FA1CD0321",
+    "PatientDoctorId": "68c9dcab-a08e-4d7e-a781-278c127b091f"
+
   },
   {
     "Id": "GM-2024-03-29-084512",
@@ -100,7 +107,8 @@
     },
     "Gender": "M",
     "BOD": "1998-06-20",
-    "HardwareId": "EB02C34FE153"
+    "HardwareId": "EB02C34FE153",
+    "PatientDoctorId": "68c9dcab-a08e-4d7e-a781-278c127b091f"
   },
   {
     "Id": "GM-2024-03-29-235959",
@@ -117,7 +125,9 @@
     },
     "Gender": "F",
     "BOD": "1977-12-28",
-    "HardwareId": "5D14E5622975"
+    "HardwareId": "5D14E5622975",
+    "PatientDoctorId": "e44b078c-d7e9-4a9b-881e-77278e2312a1"
+
   },
   {
     "Id": "GM-2024-03-29-123456",
@@ -134,7 +144,9 @@
     },
     "Gender": "F",
     "BOD": "2002-09-28",
-    "HardwareId": "CF2607746197"
+    "HardwareId": "CF2607746197",
+    "PatientDoctorId": "0d87239b-dcbd-4e2d-891c-17b072c987ba"
+
   },
   {
     "Id": "GM-2024-03-29-789012",

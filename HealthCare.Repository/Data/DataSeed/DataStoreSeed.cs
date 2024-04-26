@@ -1,4 +1,7 @@
-﻿using HealthCare.Core.Entities.Data;
+﻿using HealthCare.Core.Entities;
+using HealthCare.Core.Entities.Data;
+using HealthCare.Core.Entities.identity;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +13,7 @@ namespace HealthCare.Repository.Data.DataSeed
 {
     public class DataStoreSeed
     {
-        public static async Task SeedAsync(HealthCareContext dbContext)
+        public static async Task SeedAsync(HealthCareContext dbContext, UserManager<AppUser> userManager)
         {
             var ServicePath = "../HealthCare.Repository/Data/DataSeed/Locations.json";
 
@@ -19,6 +22,13 @@ namespace HealthCare.Repository.Data.DataSeed
             var HWIdPath = "../HealthCare.Repository/Data/DataSeed/HardwareId.json";
 
             await TransferData<Hardware>(HWIdPath, dbContext);
+
+            if (userManager.Users.Any())
+            {
+                var HistoryPath = "../HealthCare.Repository/Data/DataSeed/History.json";
+
+                await TransferData<History>(HistoryPath, dbContext);
+            }
 
         }
 
@@ -30,8 +40,24 @@ namespace HealthCare.Repository.Data.DataSeed
                 var Items = JsonSerializer.Deserialize<List<T>>(ItemsData);
                 if (Items?.Count > 0)
                 {
-                    foreach (var Item in Items)
-                        await dbContext.Set<T>().AddAsync(Item);
+                    if (typeof(T) == typeof(History))
+                    {
+                        var history = Items as List<History>;
+                        foreach (var Item in history!)
+                        {
+                            string DoctorId = dbContext.Set<Patient>().Where(p => p.Id == Item.HistoryPatientId).Select(p => p.PatientDoctorId).FirstOrDefault()!;
+                            Item.HistoryDoctorId = DoctorId;
+                            await dbContext.Set<History>().AddAsync(Item);
+                        }
+                    }
+                    else
+                    {
+                        foreach (var Item in Items)
+                        {
+                            await dbContext.Set<T>().AddAsync(Item);
+                        }
+                    }
+
                     await dbContext.SaveChangesAsync();
                 }
             }
