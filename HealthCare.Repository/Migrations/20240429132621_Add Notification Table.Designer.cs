@@ -4,6 +4,7 @@ using HealthCare.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthCare.Repository.Migrations
 {
     [DbContext(typeof(HealthCareContext))]
-    partial class HealthCareContextModelSnapshot : ModelSnapshot
+    [Migration("20240429132621_Add Notification Table")]
+    partial class AddNotificationTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +56,7 @@ namespace HealthCare.Repository.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Notification", "dbo");
+                    b.ToTable("Notification", "Identity");
                 });
 
             modelBuilder.Entity("HealthCare.Core.Entities.Data.Hardware", b =>

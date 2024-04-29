@@ -1,4 +1,5 @@
-﻿using HealthCare.Core.Entities;
+﻿using HealthCare.Core.AddRequest;
+using HealthCare.Core.Entities;
 using HealthCare.Core.Entities.Data;
 using HealthCare.Core.Entities.identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -49,5 +50,9 @@ namespace HealthCare.Repository.Data
         public DbSet<History> UserHistory { get; set; }
         public DbSet<Services> Services { get; set; }
         public DbSet<Hardware> Hardware { get; set; }
+        public DbSet<Notification> Notification { get; set; }
+        public DbSet<Doctor> Doctor { get; set; }
+        public DbSet<Patient> Patient { get; set; }
+        public DbSet<Observer> Observer { get; set; }
     }
 }

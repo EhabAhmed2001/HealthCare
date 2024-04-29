@@ -16,6 +16,15 @@ namespace HealthCare.Repository.Configurations
             builder.OwnsOne(H=>H.UserData, H => H.WithOwner());
 
             builder.ToTable("History", "dbo");
+
+          /*  builder.Property(H => H.UserData.Temperature)
+                .HasColumnType("decimal(18,2)");
+
+            builder.Property(H => H.UserData.HeartRate)
+                .HasColumnType("decimal(18,2)");
+            
+            builder.Property(H => H.UserData.Oxygen)
+                .HasColumnType("decimal(18,2)"); */
         }
     }
 }

@@ -17,7 +17,8 @@ namespace HealthCare.Repository.Configurations
         public void Configure(EntityTypeBuilder<Patient> builder)
         {
             builder.HasOne(P => P.PatientObserver)
-                .WithOne(O => O.Patient).HasForeignKey<Observer>(O => O.PatientObserverId)
+                .WithOne(O => O.Patient)
+                .HasForeignKey<Observer>(O => O.PatientObserverId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(P => P.Doctor)

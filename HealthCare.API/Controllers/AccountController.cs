@@ -78,7 +78,9 @@ namespace HealthCare.PL.Controllers
                     PhoneNamber = CurrentPatient.PhoneNumber,
                     Gender = CurrentPatient.Gender,
                     BOD = CurrentPatient.BOD,
+                    BloodType = CurrentPatient.BloodType,
                     PictureUrl = CurrentPatient.PictureUrl,
+                    DoctorId = CurrentPatient.PatientDoctorId
 
                 };
 

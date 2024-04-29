@@ -8,5 +8,8 @@ namespace HealthCare.PL.DTOs
 
         public DateOnly BOD { get; set; }
 
+        public string? DoctorId { get; set; }
+        public string? BloodType { get; set; }
+
     }
 }

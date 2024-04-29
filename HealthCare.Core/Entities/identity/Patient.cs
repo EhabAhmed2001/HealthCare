@@ -12,6 +12,7 @@ namespace HealthCare.Core.Entities
     {
         public char Gender { get; set; }
         public DateOnly BOD { get; set; }
+        public string? BloodType { get; set; }
 
         public string HardwareId { get; set; }
         public Hardware Hardware { get; set; }

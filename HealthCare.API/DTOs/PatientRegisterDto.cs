@@ -36,6 +36,8 @@ namespace HealthCare.PL.Controllers
 
         [Required]
         public string Password { get; set; }
+
+        public string? BloodType { get; set; }
     }
 }
 
