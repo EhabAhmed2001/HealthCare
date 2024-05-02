@@ -8,7 +8,7 @@ namespace HealthCare.Core.Entities.identity
 {
     public class Observer : AppUser
     {
-        public string PatientObserverId { get; set; }
-        public Patient Patient { get; set; }
+        public string? PatientObserverId { get; set; }
+        public Patient? Patient { get; set; }
     }
 }

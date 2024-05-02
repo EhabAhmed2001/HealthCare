@@ -12,13 +12,10 @@ namespace HealthCare.PL.Controllers
         public string LastName { get; set; }
 
         [Required]
-        public string UserName { get; set; }
-
-        [Required]
         public string HardwareId { get; set; }
 
         [Required]
-        public char Gender { get; set; }
+        public string Gender { get; set; }
 
         [Required]
         public DateOnly BOD { get; set; }

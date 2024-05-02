@@ -308,7 +308,7 @@ namespace HealthCare.Repository.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PatientObserverId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    PatientObserverId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {

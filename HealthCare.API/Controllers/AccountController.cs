@@ -1,4 +1,5 @@
-﻿using HealthCare.Core.Entities;
+﻿using AutoMapper;
+using HealthCare.Core.Entities;
 using HealthCare.Core.Entities.identity;
 using HealthCare.Core.Services;
 using HealthCare.PL.DTOs;
@@ -21,12 +22,14 @@ namespace HealthCare.PL.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager <AppUser>_signInManager;
         private readonly ITokenService token;
-        
-      public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,ITokenService Token)
+        private readonly IMapper _mapper;
+
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,ITokenService Token, IMapper Mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
              token = Token;
+            _mapper = Mapper;
         }
 
         [HttpPost("login")]
@@ -68,53 +71,22 @@ namespace HealthCare.PL.Controllers
             if (role.Contains("Patient"))
             {
                 var CurrentPatient = (Patient)user;
-                var PatientToReturn = new CurrentPatientDto()
-                {
-                    Email = CurrentPatient.Email,
-                    UserName = CurrentPatient.UserName,
-                    FisrtName = CurrentPatient.FirstName,
-                    LastName = CurrentPatient.LastName,
-                    Address = CurrentPatient.Address,
-                    PhoneNamber = CurrentPatient.PhoneNumber,
-                    Gender = CurrentPatient.Gender,
-                    BOD = CurrentPatient.BOD,
-                    BloodType = CurrentPatient.BloodType,
-                    PictureUrl = CurrentPatient.PictureUrl,
-                    DoctorId = CurrentPatient.PatientDoctorId
-
-                };
+                var PatientToReturn = _mapper.Map<Patient, PatientToReturnDto>(CurrentPatient);
 
                 return Ok(PatientToReturn);
             }
+
             else if (role.Contains("Doctor"))
             {
                 var CurrentDoctor = (Doctor)user;
-                var DoctorToReturn = new CurrentDoctorDto()
-                {
-                    Email = CurrentDoctor.Email,
-                    UserName = CurrentDoctor.UserName,
-                    FisrtName = CurrentDoctor.FirstName,
-                    LastName = CurrentDoctor.LastName,
-                    Address = CurrentDoctor.Address,
-                    PhoneNamber = CurrentDoctor.PhoneNumber,
-                    PictureUrl = CurrentDoctor.PictureUrl,
-                };
+                var DoctorToReturn = _mapper.Map<Doctor, DoctorToReturnDto>(CurrentDoctor);
                 return Ok(DoctorToReturn);
 
             }
             else
             {
                 var CurrentObserver = (Observer)user;
-                var ObserverToReturn = new CurrentObserverDto()
-                {
-                    Email = CurrentObserver.Email,
-                    UserName = CurrentObserver.UserName,
-                    FisrtName = CurrentObserver.FirstName,
-                    LastName = CurrentObserver.LastName,
-                    Address = CurrentObserver.Address,
-                    PhoneNamber = CurrentObserver.PhoneNumber,
-                    PictureUrl = CurrentObserver.PictureUrl,
-                };
+                var ObserverToReturn = _mapper.Map<Observer, ObserverToReturnDto>(CurrentObserver);
                 return Ok(ObserverToReturn);
 
             }

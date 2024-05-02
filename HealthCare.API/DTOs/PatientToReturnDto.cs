@@ -2,13 +2,12 @@
 
 namespace HealthCare.PL.DTOs
 {
-    public class CurrentPatientDto :UserDto
+    public class PatientToReturnDto :UserDto
     {
         public char Gender { get; set; }
 
         public DateOnly BOD { get; set; }
 
-        public string? DoctorId { get; set; }
         public string? BloodType { get; set; }
 
     }

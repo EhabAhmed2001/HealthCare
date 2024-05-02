@@ -3,10 +3,7 @@ using HealthCare.Core.Entities.identity;
 
 namespace HealthCare.PL.DTOs
 {
-    public class CurrentObserverDto :UserDto
+    public class ObserverToReturnDto :UserDto
     {
-      
-        
-
     }
 }
