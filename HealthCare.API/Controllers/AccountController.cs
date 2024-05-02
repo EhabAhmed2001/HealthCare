@@ -59,12 +59,8 @@ namespace HealthCare.PL.Controllers
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
             var Email = User.FindFirstValue(ClaimTypes.Email);
-            if (Email is null)
-            {
-                return BadRequest(new {message= "There is no active users."});
-            }
-            var user = await _userManager.FindByEmailAsync(Email);
 
+            var user = await _userManager.FindByEmailAsync(Email);
 
             var role = await _userManager.GetRolesAsync(user);
 

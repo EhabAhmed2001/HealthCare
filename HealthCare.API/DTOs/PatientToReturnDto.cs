@@ -10,5 +10,7 @@ namespace HealthCare.PL.DTOs
 
         public string? BloodType { get; set; }
 
+        public string? DoctorId { get; set; }
+
     }
 }
