@@ -17,6 +17,8 @@ using System.Security.Claims;
 using HealthCare.Repository.Data;
 using AutoMapper;
 using HealthCare.PL.Helper;
+using System.Reflection;
+using HealthCare.Core.AddRequest;
 
 namespace HealthCare.PL.Controllers
 {
@@ -176,13 +178,14 @@ namespace HealthCare.PL.Controllers
                 return BadRequest(new { Message = "Doctor data not found." });
             }
 
-            var doctorDto = new UserSearchToReturnDto()
+            var doctorDto = _mapper.Map<AppUser, UserSearchToReturnDto>(doctorData);
+           /* new UserSearchToReturnDto()
             {
                 FirstName = doctorData.FirstName,
                 LastName = doctorData.LastName,
                 UserName = doctorData.UserName!,
                 PictureUrl = doctorData.PictureUrl
-            };
+            }; */
 
             return Ok(doctorDto);
         }
@@ -205,13 +208,14 @@ namespace HealthCare.PL.Controllers
                 return BadRequest(new { Message = "Observer data not found." });
             }
 
-            var ObserverDto = new UserSearchToReturnDto()
+            var ObserverDto = _mapper.Map<AppUser, UserSearchToReturnDto>(ObserverData);
+            /*    new UserSearchToReturnDto()
             {
                 FirstName = ObserverData.FirstName,
                 LastName = ObserverData.LastName,
                 UserName = ObserverData.UserName!,
                 PictureUrl = ObserverData.PictureUrl
-            };
+            }; */
 
             return Ok(ObserverDto);
         }
@@ -242,7 +246,7 @@ namespace HealthCare.PL.Controllers
 
             // Check If Sent Request Before
             var IsRequestExist = await CheckIfNotificationExist(patient.Id, doctorId);
-            if (IsRequestExist)
+            if (IsRequestExist != null)
             {
                 return BadRequest(new { Message = "This Request Already Sent Or Received" });
             }
@@ -293,7 +297,7 @@ namespace HealthCare.PL.Controllers
 
             // Check If Sent Request Before
             var IsRequestExist = await CheckIfNotificationExist(patient.Id, observerId);
-            if (IsRequestExist)
+            if (IsRequestExist != null)
             {
                 return BadRequest(new { Message = "This Request Already Sent Or Received" });
             }
@@ -335,6 +339,7 @@ namespace HealthCare.PL.Controllers
             
         }
 
+        
         [HttpPut("DeleteObserver")]
         public async Task<ActionResult> DeleteObserver()
         {
@@ -362,20 +367,141 @@ namespace HealthCare.PL.Controllers
 
         }
 
-        // ===================================================
-        // =========Accept And Reject Request=================
-        // ===================================================
+        
 
-        private async Task<bool> CheckIfNotificationExist(string SenderId, string ReceiverId)
+        [HttpPut("AcceptRequest")]
+        public async Task<ActionResult> AcceptRequest(string SenderEmail)
+        {
+            // Get the patient's email from the user's claims
+            var ReceiverEmail = User.FindFirstValue(ClaimTypes.Email)!;
+
+            // Get the patient's ID from the database
+            var Receiver =  _dbContext.Patient.FirstOrDefault(P=>P.Email == ReceiverEmail)!;
+
+            // Get the sender's ID from the database
+            var SenderEmailCheck = await _userManager.FindByEmailAsync(SenderEmail);
+
+            if (SenderEmailCheck == null)
+            {
+                return BadRequest(new { Message = "User not found." });
+            }
+
+            var Sender = _userManager.FindByEmailAsync(SenderEmail).Result!;
+
+
+            // Check If Request Exist
+            var notification = await CheckIfNotificationExist(Sender.Id, Receiver.Id);
+
+            if (notification == null)
+            {
+                return BadRequest(new { Message = "Request not found." });
+            }
+
+
+            var role = await _userManager.GetRolesAsync(Sender);
+
+            if (role.Contains("Doctor"))
+            {
+                //Check If Ptient Has Doctor
+                if (Receiver.PatientDoctorId != null)
+                {
+                    return BadRequest(new { Message = "You already have a doctor, can't add more than a doctor, you can remove your doctor then add another" });
+                }
+                // Change the request status to accepted
+                notification.Status = NotificationStatus.Approved;
+                // Add the doctor to the patient's doctor
+                Receiver.PatientDoctorId = Sender.Id;
+
+                if( await _dbContext.SaveChangesAsync() > 0)
+                {
+                    return Ok(new { Message = "Request accepted successfully." });
+                }
+                else
+                {
+                    return BadRequest(new { Message = "Failed to accept the request. Try again" });
+                }
+            }
+
+            if (role.Contains("Observer"))
+            {
+                //Check If Ptient Has Observer
+                var IsObserverable = _dbContext.Observer.FirstOrDefault(O => O.PatientObserverId == Receiver.Id);
+                if (IsObserverable != null)
+                {
+                    return BadRequest(new { Message = "You already have an observer, can't add more than an observer, you can remove your observer then add another" });
+                }
+
+                var observer = (Observer) Sender;                
+
+                //Check If Observer Has Ptient
+                if (observer.PatientObserverId != null)
+                {
+                    return BadRequest(new { Message = "Observer already has a patient, Can't add more than a patient, He can remove the patient then add another" });
+                }
+
+                notification.Status = NotificationStatus.Approved;
+                // Add the doctor to the patient's doctor
+                observer.PatientObserverId = Receiver.Id;
+
+                if (await _dbContext.SaveChangesAsync() > 0)
+                {
+                    return Ok(new { Message = "Request accepted successfully." });
+                }
+                else
+                {
+                    return BadRequest(new { Message = "Failed to accept the request. Try again" });
+                }
+            }
+
+            return BadRequest(new { Message = "Failed to accept the request. Try again" });
+
+        }
+
+
+        [HttpPut("RejectRequest")]
+        public async Task<ActionResult> RejectRequest(string SenderEmail)
+        {
+            // Get the patient's email from the user's claims
+            var ReceiverEmail = User.FindFirstValue(ClaimTypes.Email)!;
+
+            // Get the patient's ID from the database
+            var Receiver = _dbContext.Patient.FirstOrDefault(P => P.Email == ReceiverEmail)!;
+
+            // Get the sender's ID from the database
+            var Sender = _userManager.FindByEmailAsync(SenderEmail).Result!;
+
+            if (Sender == null)
+            {
+                return BadRequest(new { Message = "User not found." });
+            }
+
+            var notification = await CheckIfNotificationExist(Sender.Id, Receiver.Id);
+
+            if (notification == null)
+            {
+                return BadRequest(new { Message = "Request not found." });
+            }
+
+            notification.Status = NotificationStatus.Rejected;
+
+            if(await _dbContext.SaveChangesAsync() > 0  )
+            {
+                return Ok(new { Message = "Request rejected successfully." });
+            }
+            else
+            {
+                return BadRequest(new { Message = "Failed to reject the request. Try again" });
+            }
+
+        }
+
+
+
+        private async Task<Notification?> CheckIfNotificationExist(string SenderId, string ReceiverId)
         {
             var notification = await _dbContext.Notification.FirstOrDefaultAsync(n => ((n.SenderId == SenderId && n.ReceiverId == ReceiverId) || (n.SenderId == ReceiverId && n.ReceiverId == SenderId)) && n.Status == NotificationStatus.Pending);
 
-            if (notification != null)
-            {
-                return true;
-            }
-
-            return false;
+            return notification;
         }
 
     }

@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
+using HealthCare.Core;
+using HealthCare.Core.AddRequest;
 using HealthCare.Core.Entities;
 using HealthCare.Core.Entities.identity;
 using HealthCare.Core.Services;
+using HealthCare.Core.Specifications.NotificationSpecification;
 using HealthCare.PL.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -23,13 +26,15 @@ namespace HealthCare.PL.Controllers
         private readonly SignInManager <AppUser>_signInManager;
         private readonly ITokenService token;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,ITokenService Token, IMapper Mapper)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,ITokenService Token, IMapper Mapper, IUnitOfWork UnitOfWork)
         {
             _userManager = userManager;
             _signInManager = signInManager;
              token = Token;
             _mapper = Mapper;
+            _unitOfWork = UnitOfWork;
         }
 
         [HttpPost("login")]
@@ -92,5 +97,21 @@ namespace HealthCare.PL.Controllers
         }
 
 
+        [HttpGet("GetAllRequests")]
+        public async Task<ActionResult<IReadOnlyList<UserSearchToReturnDto>>> GetAllRequests()
+        {
+            var Email = User.FindFirstValue(ClaimTypes.Email);
+            var Spec = new NotificationSpec(Email!);
+            var AllNotifications = await _unitOfWork.CreateRepository<Notification>().GetAllWithSpecAsync(Spec);
+            List<UserSearchToReturnDto> ReturnedNotifications = new List<UserSearchToReturnDto>();
+            foreach (var Notification in AllNotifications) 
+            {
+                var user = await _userManager.FindByEmailAsync(Notification.SenderEmail);
+                var MappedUser = _mapper.Map<AppUser, UserSearchToReturnDto>(user!);
+                ReturnedNotifications.Add(MappedUser); 
+            }
+
+            return Ok(ReturnedNotifications);
+        }
     }
 }

@@ -25,6 +25,8 @@ namespace HealthCare.PL.Helper
             CreateMap<Patient, PatientToReturnDto>()
                 .ForMember(PR => PR.DoctorId, O => O.MapFrom(P => P.PatientDoctorId));
 
+            CreateMap<AppUser, UserSearchToReturnDto>();
+
         }
     }
 }
