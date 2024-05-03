@@ -8,5 +8,7 @@ public enum NotificationStatus
 
     [EnumMember(Value = "Approved")] Approved,
 
-    [EnumMember(Value = "Rejected")] Rejected
+    [EnumMember(Value = "Rejected")] Rejected,
+
+    [EnumMember(Value = "Canceled")] Canceled
 }

@@ -495,11 +495,115 @@ namespace HealthCare.PL.Controllers
 
         }
 
-
-
-        private async Task<Notification?> CheckIfNotificationExist(string SenderId, string ReceiverId)
+        [HttpPut("CancelRequest")]
+        public async Task<ActionResult> CancelRequest(string ReceiverEmail)
         {
-            var notification = await _dbContext.Notification.FirstOrDefaultAsync(n => ((n.SenderId == SenderId && n.ReceiverId == ReceiverId) || (n.SenderId == ReceiverId && n.ReceiverId == SenderId)) && n.Status == NotificationStatus.Pending);
+            // Get the patient's email from the user's claims
+            var SenderEmail = User.FindFirstValue(ClaimTypes.Email)!;
+
+            // Get the patient's ID from the database
+            var Sender = await _userManager.FindByEmailAsync(SenderEmail)!;
+
+            // Get the receiver's ID from the database
+            var Receiver = await _userManager.FindByEmailAsync(ReceiverEmail)!;
+
+            if (Receiver == null)
+            {
+                return BadRequest(new { Message = "User not found." });
+            }
+
+            var notification = await CheckIfNotificationExist(Sender.Id, Receiver.Id);
+
+            if (notification == null)
+            {
+                return BadRequest(new { Message = "Request not found." });
+            }
+
+            notification.Status = NotificationStatus.Canceled;
+
+            if (await _dbContext.SaveChangesAsync() > 0)
+            {
+                return Ok(new { Message = "Request canceled successfully." });
+            }
+            else
+            {
+                return BadRequest(new { Message = "Failed to cancel the request. Try again" });
+            }
+
+        }
+
+        [HttpPut("RemoveDoctor")]
+        public async Task<ActionResult> RemoveDoctor()
+        {
+            // Get the patient's email from the user's claims
+            var patientEmail = User.FindFirstValue(ClaimTypes.Email)!;
+
+            // Get the patient's ID from the database
+            var patient = (Patient)_userManager.FindByEmailAsync(patientEmail).Result!;
+
+            // check if the patient has a doctor
+            if (patient.PatientDoctorId == null)
+            {
+                return BadRequest(new { Message = "You don't have a doctor to remove" });
+            }
+
+            // Update Notification Status to Canceled
+            var notification = await CheckIfNotificationExist(patient.Id, patient.PatientDoctorId!, NotificationStatus.Approved);
+
+            // Remove the doctor from the patient's doctor
+            patient.PatientDoctorId = null;
+
+            notification!.Status = NotificationStatus.Canceled;
+
+            if (await _dbContext.SaveChangesAsync() > 0)
+            {
+                return Ok(new { Message = "Doctor removed successfully." });
+            }
+            else
+            {
+                return BadRequest(new { Message = "Failed to remove the doctor. Try again" });
+            }
+
+        }
+
+        [HttpPut("RemoveObserver")]
+        public async Task<ActionResult> RemoveObserver()
+        {
+            // Get the patient's email from the user's claims
+            var patientEmail = User.FindFirstValue(ClaimTypes.Email)!;
+
+            // Get the patient's ID from the database
+            var patient = (Patient)_userManager.FindByEmailAsync(patientEmail).Result!;
+
+            // check if the patient has an observer
+            var observer = _dbContext.Observer.FirstOrDefault(O => O.PatientObserverId == patient.Id);
+
+            if (observer == null)
+            {
+                return BadRequest(new { Message = "You don't have an observer to remove" });
+            }
+
+            // Update Notification Status to Canceled
+            var notification = await CheckIfNotificationExist(patient.Id, observer.Id, NotificationStatus.Approved);
+            notification!.Status = NotificationStatus.Canceled;
+
+            // Remove the observer from the patient's observer
+            observer.PatientObserverId = null;
+
+            if (await _dbContext.SaveChangesAsync() > 0)
+            {
+                return Ok(new { Message = "Observer removed successfully." });
+            }
+            else
+            {
+                return BadRequest(new { Message = "Failed to remove the observer. Try again" });
+            }
+
+        }
+
+        private async Task<Notification?> CheckIfNotificationExist(string SenderId, string ReceiverId, NotificationStatus status = NotificationStatus.Pending)
+        {
+            var notification = await _dbContext.Notification.FirstOrDefaultAsync(n => ((n.SenderId == SenderId && n.ReceiverId == ReceiverId) || (n.SenderId == ReceiverId && n.ReceiverId == SenderId)) && n.Status == status);
 
             return notification;
         }
