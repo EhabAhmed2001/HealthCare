@@ -6,7 +6,6 @@
       "Oxygen": 97.0,
       "ECG": "94,68,84,90,80,68,83,80,100,71"
     },
-    "Actions": "Prescribed rest and hydration",
     "MeasureDate": "2024-04-21T11:11:20.047Z",
     "HistoryPatientId": "GN-2024-03-29-1234"
   },
@@ -18,7 +17,6 @@
       "Oxygen": 95.0,
       "ECG": "92,70,85,88,82,69,80,79,98,70"
     },
-    "Actions": "Recommended follow-up with a specialist",
     "MeasureDate": "2024-04-21T11:11:20.047Z",
     "HistoryPatientId": "GD-2024-03-29-5678"
   },
@@ -29,7 +27,6 @@
       "Oxygen": 96.0,
       "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "Actions": "Advised lifestyle changes and regular exercise",
     "MeasureDate": "2024-04-21T11:11:20.047Z",
     "HistoryPatientId": "GT-2024-03-29-91011"
   },
@@ -40,7 +37,6 @@
       "Oxygen": 94.0,
       "ECG": "93,67,86,91,81,70,82,81,99,72"
     },
-    "Actions": "Scheduled additional tests for further evaluation",
     "MeasureDate": "2024-04-21T11:11:20.047Z",
     "HistoryPatientId": "GQ-2024-03-29-121314"
   },
@@ -51,7 +47,6 @@
       "Oxygen": 96.0,
       "ECG": "94,68,84,90,80,68,83,80,100,71"
     },
-    "Actions": "Administered medication for fever",
     "MeasureDate": "2024-04-21T11:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-151617"
   },
@@ -62,7 +57,6 @@
       "Oxygen": 93.0,
       "ECG": "92,70,85,88,82,69,80,79,98,70"
     },
-    "Actions": "Scheduled additional tests for heart condition",
     "MeasureDate": "2024-04-21T11:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-084512"
   },
@@ -73,7 +67,6 @@
       "Oxygen": 98.0,
       "ECG": "94,68,84,90,80,68,83,80,100,71"
     },
-    "Actions": "Scheduled follow-up appointment for general check-up",
     "MeasureDate": "2024-04-21T11:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-235959"
   },
@@ -84,7 +77,6 @@
       "Oxygen": 94.0,
       "ECG": "92,70,85,88,82,69,80,79,98,70"
     },
-    "Actions": "Advised dietary changes and regular exercise",
     "MeasureDate": "2024-04-21T11:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-123456"
   },
@@ -95,7 +87,6 @@
       "Oxygen": 97.0,
       "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "Actions": "Prescribed antibiotics for infection",
     "MeasureDate": "2024-04-21T11:11:20.047Z",
     "HistoryPatientId": "GT-2024-03-29-91011"
   },
@@ -106,7 +97,6 @@
       "Oxygen": 96.0,
       "ECG": "93,67,86,91,81,70,82,81,99,72"
     },
-    "Actions": "consult your doctor",
     "MeasureDate": "2024-04-21T11:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-235959"
   },
@@ -118,7 +108,6 @@
       "Oxygen": 96.0,
       "ECG": "94,68,84,90,80,68,81,80,100,71"
     },
-    "Actions": "Take a fever reducer",
     "MeasureDate": "2024-04-22T10:11:20.047Z",
     "HistoryPatientId": "GN-2024-03-29-1234"
   },
@@ -130,7 +119,6 @@
       "Oxygen": 98.0,
       "ECG": "94,68,84,90,80,68,83,80,100,71"
     },
-    "Actions": "Routine check-up, all parameters within normal range",
     "MeasureDate": "2024-04-22T10:11:20.047Z",
     "HistoryPatientId": "GD-2024-03-29-5678"
   },
@@ -141,7 +129,6 @@
       "Oxygen": 91.0,
       "ECG": "92,70,85,88,82,69,80,79,98,70"
     },
-    "Actions": "Contact doctor urgently, high fever and low Oxygen levels",
     "MeasureDate": "2024-04-22T10:11:20.047Z",
     "HistoryPatientId": "GT-2024-03-29-91011"
   },
@@ -152,7 +139,6 @@
       "Oxygen": 97.0,
       "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "Actions": "Prescribed medication for mild flu symptoms",
     "MeasureDate": "2024-04-22T10:11:20.047Z",
     "HistoryPatientId": "GQ-2024-03-29-121314"
   },
@@ -163,7 +149,6 @@
       "Oxygen": 97.0,
       "ECG": "92,68,84,90,80,68,83,80,100,71"
     },
-    "Actions": "Prescribed rest and hydration",
     "MeasureDate": "2024-04-22T10:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-151617"
   },
@@ -174,7 +159,6 @@
       "Oxygen": 98.0,
       "ECG": "94,68,84,91,80,68,83,80,100,71"
     },
-    "Actions": "No action required at this time",
     "MeasureDate": "2024-04-22T10:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-084512"
   },
@@ -185,7 +169,6 @@
       "Oxygen": 97.0,
       "ECG": "92,68,84,90,80,68,83,80,100,71"
     },
-    "Actions": "Temperature is slightly low",
     "MeasureDate": "2024-04-22T10:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-235959"
   },
@@ -196,7 +179,6 @@
       "Oxygen": 97.0,
       "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "Actions": "Advised warm compress for muscle soreness",
     "MeasureDate": "2024-04-22T10:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-123456"
   },
@@ -207,7 +189,6 @@
       "Oxygen": 98.0,
       "ECG": "94,68,84,94,80,68,83,80,100,71"
     },
-    "Actions": "No action required at this time",
     "MeasureDate": "2024-04-22T10:11:20.047Z",
     "HistoryPatientId": "GQ-2024-03-29-121314"
   },
@@ -218,7 +199,6 @@
       "Oxygen": 95.0,
       "ECG": "93,67,86,91,81,70,82,81,99,72"
     },
-    "Actions": "Recommended deep breathing exercises for stress relief",
     "MeasureDate": "2024-04-22T10:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-123456"
   },
@@ -230,7 +210,6 @@
       "Oxygen": 91.0,
       "ECG": "92,70,85,88,82,69,80,78,98,70"
     },
-    "Actions": "Contact doctor urgently, high fever and low Oxygen levels",
     "MeasureDate": "2024-04-23T11:10:20.047Z",
     "HistoryPatientId": "GN-2024-03-29-1234"
   },
@@ -242,7 +221,6 @@
       "Oxygen": 97.0,
       "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "Actions": "Prescribed medication for mild flu symptoms",
     "MeasureDate": "2024-04-23T11:10:20.047Z",
     "HistoryPatientId": "GD-2024-03-29-5678"
   },
@@ -253,7 +231,6 @@
       "Oxygen": 96.0,
       "ECG": "94,68,84,90,80,68,83,80,100,71"
     },
-    "Actions": "Advised to increase fluid intake for hydration",
     "MeasureDate": "2024-04-23T11:10:20.047Z",
     "HistoryPatientId": "GT-2024-03-29-91011"
   },
@@ -264,7 +241,6 @@
       "Oxygen": 93.0,
       "ECG": "96,69,83,89,79,67,84,82,102,70"
     },
-    "Actions": "Advised to take a break and rest",
     "MeasureDate": "2024-04-23T11:10:20.047Z",
     "HistoryPatientId": "GQ-2024-03-29-121314"
   },
@@ -275,7 +251,6 @@
       "Oxygen": 97.0,
       "ECG": "92,68,84,91,80,68,83,81,100,71"
     },
-    "Actions": "Temperature is slightly low",
     "MeasureDate": "2024-04-23T11:10:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-151617"
   },
@@ -286,7 +261,6 @@
       "Oxygen": 94.0,
       "ECG": "93,67,86,91,81,70,82,81,94,72"
     },
-    "Actions": "Scheduled additional tests for further evaluation",
     "MeasureDate": "2024-04-23T11:10:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-084512"
   },
@@ -297,7 +271,6 @@
       "Oxygen": 97.0,
       "ECG": "96,69,83,84,79,67,84,82,103,70"
     },
-    "Actions": "Advised warm compress for muscle soreness",
     "MeasureDate": "2024-04-23T11:10:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-235959"
   },
@@ -308,7 +281,6 @@
       "Oxygen": 97.0,
       "ECG": "93,67,86,91,81,70,82,81,99,72"
     },
-    "Actions": "Suggested dietary changes for better heart health",
     "MeasureDate": "2024-04-23T11:10:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-123456"
   },
@@ -319,7 +291,6 @@
       "Oxygen": 98.0,
       "ECG": "94,68,84,91,80,68,83,80,100,71"
     },
-    "Actions": "No action required at this time",
     "MeasureDate": "2024-04-23T11:10:20.047Z",
     "HistoryPatientId": "GN-2024-03-29-1234"
   },
@@ -330,7 +301,6 @@
       "Oxygen": 93.0,
       "ECG": "92,70,85,85,82,69,80,79,97,70"
     },
-    "Actions": "Scheduled additional tests for heart condition",
     "MeasureDate": "2024-04-23T11:10:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-151617"
   },
@@ -342,7 +312,6 @@
       "Oxygen": 94.0,
       "ECG": "91,70,85,84,82,69,80,79,98,70"
     },
-    "Actions": "Scheduled additional tests for heart condition",
     "MeasureDate": "2024-04-24T11:11:20.047Z",
     "HistoryPatientId": "GN-2024-03-29-1234"
   },
@@ -354,7 +323,6 @@
       "Oxygen": 94.0,
       "ECG": "93,65,86,91,82,71,82,81,99,72"
     },
-    "Actions": "Scheduled additional tests for further evaluation",
     "MeasureDate": "2024-04-24T11:11:20.047Z",
     "HistoryPatientId": "GD-2024-03-29-5678"
   },
@@ -365,7 +333,6 @@
       "Oxygen": 98.0,
       "ECG": "94,68,84,91,80,68,83,80,100,71"
     },
-    "Actions": "No action required at this time",
     "MeasureDate": "2024-04-24T11:11:20.047Z",
     "HistoryPatientId": "GT-2024-03-29-91011"
   },
@@ -376,7 +343,6 @@
       "Oxygen": 95.0,
       "ECG": "93,65,86,91,81,72,82,81,99,72"
     },
-    "Actions": "Recommended deep breathing exercises for stress relief",
     "MeasureDate": "2024-04-24T11:11:20.047Z",
     "HistoryPatientId": "GQ-2024-03-29-121314"
   },
@@ -387,7 +353,6 @@
       "Oxygen": 97.0,
       "ECG": "96,69,82,89,79,67,84,82,102,70"
     },
-    "Actions": "Advised warm compress for muscle soreness",
     "MeasureDate": "2024-04-24T11:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-151617"
   },
@@ -398,7 +363,6 @@
       "Oxygen": 97.0,
       "ECG": "92,68,84,90,80,68,83,80,100,71"
     },
-    "Actions": "Temperature is slightly low",
     "MeasureDate": "2024-04-24T11:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-084512"
   },
@@ -409,7 +373,6 @@
       "Oxygen": 95.0,
       "ECG": "92,70,85,88,82,69,80,79,98,70"
     },
-    "Actions": "Recommended follow-up with a specialist",
     "MeasureDate": "2024-04-24T11:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-235959"
   },
@@ -420,7 +383,6 @@
       "Oxygen": 97.0,
       "ECG": "94,66,84,90,80,68,83,80,100,71"
     },
-    "Actions": "Prescribed rest and hydration",
     "MeasureDate": "2024-04-24T11:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-123456"
   },
@@ -431,7 +393,6 @@
       "Oxygen": 97.0,
       "ECG": "96,69,80,89,79,67,84,82,102,70"
     },
-    "Actions": "Prescribed medication for mild flu symptoms",
     "MeasureDate": "2024-04-24T11:11:20.047Z",
     "HistoryPatientId": "GD-2024-03-29-5678"
   },
@@ -442,7 +403,6 @@
       "Oxygen": 90.0,
       "ECG": "92,70,85,86,82,69,80,79,98,70"
     },
-    "Actions": "Contact doctor urgently, high fever and low Oxygen levels",
     "MeasureDate": "2024-04-24T11:11:20.047Z",
     "HistoryPatientId": "GM-2024-03-29-084512"
   }

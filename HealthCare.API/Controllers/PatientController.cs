@@ -161,66 +161,6 @@ namespace HealthCare.PL.Controllers
         }
 
 
-        [HttpGet("SearchDoctor")]
-        public async Task<ActionResult<UserSearchToReturnDto>> SearchDoctor(string DoctorEmail)
-        {
-            // Get the doctor data from the database
-            var doctorData = await _userManager.FindByEmailAsync(DoctorEmail);
-
-            if (doctorData == null)
-            {
-                return BadRequest(new { Message = "Doctor data not found." });
-            }
-            // Get Doctor Role
-            var doctorRole = await _userManager.GetRolesAsync(doctorData);
-            if (!doctorRole.Contains("Doctor"))
-            {
-                return BadRequest(new { Message = "Doctor data not found." });
-            }
-
-            var doctorDto = _mapper.Map<AppUser, UserSearchToReturnDto>(doctorData);
-           /* new UserSearchToReturnDto()
-            {
-                FirstName = doctorData.FirstName,
-                LastName = doctorData.LastName,
-                UserName = doctorData.UserName!,
-                PictureUrl = doctorData.PictureUrl
-            }; */
-
-            return Ok(doctorDto);
-        }
-
-
-        [HttpGet("SearchObserver")]
-        public async Task<ActionResult<UserSearchToReturnDto>> SearchObserver(string ObserverEmail)
-        {
-            // Get the doctor data from the database
-            var ObserverData = await _userManager.FindByEmailAsync(ObserverEmail);
-
-            if (ObserverData == null)
-            {
-                return BadRequest(new { Message = "Observer data not found." });
-            }
-            // Get Doctor Role
-            var doctorRole = await _userManager.GetRolesAsync(ObserverData);
-            if (!doctorRole.Contains("Observer"))
-            {
-                return BadRequest(new { Message = "Observer data not found." });
-            }
-
-            var ObserverDto = _mapper.Map<AppUser, UserSearchToReturnDto>(ObserverData);
-            /*    new UserSearchToReturnDto()
-            {
-                FirstName = ObserverData.FirstName,
-                LastName = ObserverData.LastName,
-                UserName = ObserverData.UserName!,
-                PictureUrl = ObserverData.PictureUrl
-            }; */
-
-            return Ok(ObserverDto);
-        }
-
-
         [HttpPost("AddDoctorRequest")]
         public async Task<ActionResult> AddDoctorRequest(string Email)
         {
@@ -237,22 +177,22 @@ namespace HealthCare.PL.Controllers
             }
 
             // Get the doctor's ID from the database
-            var doctorId = await UserHelper.UserSearch(Email, "Doctor", _userManager);
+            var doctor = await UserHelper.UserSearch(Email, "Doctor", _userManager);
 
-            if (doctorId == null)
+            if (doctor == null)
             {
                 return BadRequest(new { Message = "Doctor not found." });
             }
 
             // Check If Sent Request Before
-            var IsRequestExist = await CheckIfNotificationExist(patient.Id, doctorId);
+            var IsRequestExist = await UserHelper.CheckIfNotificationExist(patient.Id, doctor.Id, _dbContext);
             if (IsRequestExist != null)
             {
                 return BadRequest(new { Message = "This Request Already Sent Or Received" });
             }
 
             // Add the request to the database
-            var result = await UserHelper.AddOrEditToNotificatiopn(patient.Id, doctorId, patient.Email!, Email, _dbContext);
+            var result = await UserHelper.AddOrEditToNotificatiopn(patient.Id, doctor.Id, patient.Email!, Email, _dbContext);
 
             if (result)
             {
@@ -281,29 +221,28 @@ namespace HealthCare.PL.Controllers
             }
 
             // Get the observer's ID from the database
-            var observerId = await UserHelper.UserSearch(Email, "Observer", _userManager);
+            var observer = (Observer?)await UserHelper.UserSearch(Email, "Observer", _userManager);
 
-            if (observerId == null)
+            if (observer == null)
             {
                 return BadRequest(new { Message = "Observer not found." });
             }
 
             //Check If Observer Has Ptient
-            var IsObserverFree = (Observer) _userManager.FindByEmailAsync(Email).Result!;
-            if (IsObserverFree.PatientObserverId != null)
+            if (observer.PatientObserverId != null)
             {
                 return BadRequest(new { Message = "Observer already has a patient, Can't add more than a patient, He can remove the patient then add another" });
             }
 
             // Check If Sent Request Before
-            var IsRequestExist = await CheckIfNotificationExist(patient.Id, observerId);
+            var IsRequestExist = await UserHelper.CheckIfNotificationExist(patient.Id, observer.Id, _dbContext);
             if (IsRequestExist != null)
             {
                 return BadRequest(new { Message = "This Request Already Sent Or Received" });
             }
 
             // Add the request to the database
-            var result = await UserHelper.AddOrEditToNotificatiopn(patient.Id, observerId, patient.Email!, Email, _dbContext);
+            var result = await UserHelper.AddOrEditToNotificatiopn(patient.Id, observer.Id, patient.Email!, Email, _dbContext);
 
             if (result)
             {
@@ -390,7 +329,7 @@ namespace HealthCare.PL.Controllers
 
 
             // Check If Request Exist
-            var notification = await CheckIfNotificationExist(Sender.Id, Receiver.Id);
+            var notification = await UserHelper.CheckIfNotificationExist(Sender.Id, Receiver.Id, _dbContext);
 
             if (notification == null)
             {
@@ -422,7 +361,7 @@ namespace HealthCare.PL.Controllers
                 }
             }
 
-            if (role.Contains("Observer"))
+            else if (role.Contains("Observer"))
             {
                 //Check If Ptient Has Observer
                 var IsObserverable = _dbContext.Observer.FirstOrDefault(O => O.PatientObserverId == Receiver.Id);
@@ -440,7 +379,7 @@ namespace HealthCare.PL.Controllers
                 }
 
                 notification.Status = NotificationStatus.Approved;
-                // Add the doctor to the patient's doctor
+                // Add the Observer to the patient's Observer
                 observer.PatientObserverId = Receiver.Id;
 
                 if (await _dbContext.SaveChangesAsync() > 0)
@@ -458,80 +397,6 @@ namespace HealthCare.PL.Controllers
         }
 
 
-        [HttpPut("RejectRequest")]
-        public async Task<ActionResult> RejectRequest(string SenderEmail)
-        {
-            // Get the patient's email from the user's claims
-            var ReceiverEmail = User.FindFirstValue(ClaimTypes.Email)!;
-
-            // Get the patient's ID from the database
-            var Receiver = _dbContext.Patient.FirstOrDefault(P => P.Email == ReceiverEmail)!;
-
-            // Get the sender's ID from the database
-            var Sender = _userManager.FindByEmailAsync(SenderEmail).Result!;
-
-            if (Sender == null)
-            {
-                return BadRequest(new { Message = "User not found." });
-            }
-
-            var notification = await CheckIfNotificationExist(Sender.Id, Receiver.Id);
-
-            if (notification == null)
-            {
-                return BadRequest(new { Message = "Request not found." });
-            }
-
-            notification.Status = NotificationStatus.Rejected;
-
-            if(await _dbContext.SaveChangesAsync() > 0  )
-            {
-                return Ok(new { Message = "Request rejected successfully." });
-            }
-            else
-            {
-                return BadRequest(new { Message = "Failed to reject the request. Try again" });
-            }
-
-        }
-
-        [HttpPut("CancelRequest")]
-        public async Task<ActionResult> CancelRequest(string ReceiverEmail)
-        {
-            // Get the patient's email from the user's claims
-            var SenderEmail = User.FindFirstValue(ClaimTypes.Email)!;
-
-            // Get the patient's ID from the database
-            var Sender = await _userManager.FindByEmailAsync(SenderEmail)!;
-
-            // Get the receiver's ID from the database
-            var Receiver = await _userManager.FindByEmailAsync(ReceiverEmail)!;
-
-            if (Receiver == null)
-            {
-                return BadRequest(new { Message = "User not found." });
-            }
-
-            var notification = await CheckIfNotificationExist(Sender.Id, Receiver.Id);
-
-            if (notification == null)
-            {
-                return BadRequest(new { Message = "Request not found." });
-            }
-
-            notification.Status = NotificationStatus.Canceled;
-
-            if (await _dbContext.SaveChangesAsync() > 0)
-            {
-                return Ok(new { Message = "Request canceled successfully." });
-            }
-            else
-            {
-                return BadRequest(new { Message = "Failed to cancel the request. Try again" });
-            }
-
-        }
-
         [HttpPut("RemoveDoctor")]
         public async Task<ActionResult> RemoveDoctor()
         {
@@ -548,7 +413,7 @@ namespace HealthCare.PL.Controllers
             }
 
             // Update Notification Status to Canceled
-            var notification = await CheckIfNotificationExist(patient.Id, patient.PatientDoctorId!, NotificationStatus.Approved);
+            var notification = await UserHelper.CheckIfNotificationExist(patient.Id, patient.PatientDoctorId!, _dbContext, NotificationStatus.Approved);
 
             // Remove the doctor from the patient's doctor
             patient.PatientDoctorId = null;
@@ -584,7 +449,7 @@ namespace HealthCare.PL.Controllers
             }
 
             // Update Notification Status to Canceled
-            var notification = await CheckIfNotificationExist(patient.Id, observer.Id, NotificationStatus.Approved);
+            var notification = await UserHelper.CheckIfNotificationExist(patient.Id, observer.Id, _dbContext, NotificationStatus.Approved);
             notification!.Status = NotificationStatus.Canceled;
 
             // Remove the observer from the patient's observer
@@ -601,12 +466,7 @@ namespace HealthCare.PL.Controllers
 
         }
 
-        private async Task<Notification?> CheckIfNotificationExist(string SenderId, string ReceiverId, NotificationStatus status = NotificationStatus.Pending)
-        {
-            var notification = await _dbContext.Notification.FirstOrDefaultAsync(n => ((n.SenderId == SenderId && n.ReceiverId == ReceiverId) || (n.SenderId == ReceiverId && n.ReceiverId == SenderId)) && n.Status == status);
-
-            return notification;
-        }
+        
 
     }
 }

@@ -10,7 +10,6 @@ namespace HealthCare.Core.Entities
     public class History : AppEntity
     {
         public SensorsData UserData { get; set; }
-        public string Actions { get; set; }
         public DateTimeOffset MeasureDate { get; set; } = DateTimeOffset.Now;
 
 

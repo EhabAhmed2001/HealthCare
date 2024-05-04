@@ -22,10 +22,17 @@ namespace HealthCare.PL.Helper
 
             CreateMap<Doctor, DoctorToReturnDto>();
 
-            CreateMap<Patient, PatientToReturnDto>()
-                .ForMember(PR => PR.DoctorId, O => O.MapFrom(P => P.PatientDoctorId));
+            CreateMap<Patient, PatientToReturnDto>();
 
             CreateMap<AppUser, UserSearchToReturnDto>();
+
+            CreateMap<Patient, PatientWithHistoryToReturnDto>();
+
+            CreateMap<History, HistoryToReturnDto>()
+                .ForMember(HR => HR.HeartRate, O => O.MapFrom(H => H.UserData.HeartRate))
+                .ForMember(HR => HR.Temperature, O => O.MapFrom(H => H.UserData.Temperature))
+                .ForMember(HR => HR.ECG, O => O.MapFrom(H => H.UserData.ECG))
+                .ForMember(HR => HR.Oxygen, O => O.MapFrom(H => H.UserData.Oxygen));
 
         }
     }
