@@ -58,5 +58,11 @@ namespace HealthCare.PL.Helper
         {
             return await _dbcontext.Patient.Include(p => p.History).Include(P=>P.Doctor).FirstOrDefaultAsync(p => p.Id == PatientId);
         }
+
+        // Method to get patient History with his history by id
+        public async static Task<Patient?> GetPatientHistory(string PatientId, HealthCareContext _dbcontext)
+        {
+            return await _dbcontext.Patient.Include(p => p.History).Include(P => P.Doctor).FirstOrDefaultAsync(p => p.Id == PatientId);
+        }
     }
 }

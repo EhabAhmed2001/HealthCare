@@ -9,6 +9,8 @@ namespace HealthCare.Core.Entities
 {
     public class Doctor : AppUser
     {
+        public string? PatientDoctorId { get; set; }
+        public Patient? Patient { get; set; }
         public string Specialist { get; set; } = "General";
 
         // Patient Relation
@@ -16,6 +18,5 @@ namespace HealthCare.Core.Entities
 
         // History Relation
         public ICollection<History>? History { get; set; } = new HashSet<History>();
-
     }
 }
