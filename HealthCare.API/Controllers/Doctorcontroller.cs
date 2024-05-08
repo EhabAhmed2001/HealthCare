@@ -96,8 +96,8 @@ namespace HealthCare.PL.Controllers
         }
 
 
-        [HttpGet("GetPatientHistory")]
-        public async Task<ActionResult<PatientWithHistoryAndObserverToReturnDto>> GetPatientHistory(string PatientEmail)
+        [HttpGet("GetPatientData")]
+        public async Task<ActionResult<PatientWithHistoryAndObserverToReturnDto>> GetPatientData(string PatientEmail)
         {
             var currentDoctorEmail = User.FindFirstValue(ClaimTypes.Email);
             var currentDoctor = (Doctor)_userManager.FindByEmailAsync(currentDoctorEmail!).Result!;
