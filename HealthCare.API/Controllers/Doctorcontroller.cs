@@ -6,6 +6,7 @@ using HealthCare.PL.DTOs;
 using HealthCare.PL.Helper;
 using HealthCare.Repository.Data;
 using HealthCare.Service;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -38,14 +39,14 @@ namespace HealthCare.PL.Controllers
 
             if (existingUserByEmail != null)
             {
-                return BadRequest(new { message = "Doctor with this email Already Exists!" });
+                return BadRequest(new { message = "This Email Already Exists!" });
             }
 
             var existingUserByPhoneNumber = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == model.PhoneNumber);
 
             if (existingUserByPhoneNumber != null)
             {
-                return BadRequest(new { message = "Doctor with this phone number Already Exists!" });
+                return BadRequest(new { message = "This Phone Number Already Exists!" });
             }
 
             var Doctor = new Doctor()
@@ -78,45 +79,45 @@ namespace HealthCare.PL.Controllers
         }
 
 
-        [HttpGet("GetPatientData")]
-        public async Task<ActionResult<UserSearchToReturnDto>> GetPatientData()
+        [HttpGet("GetAllPatients")]
+        public async Task<ActionResult<List<UserSearchToReturnDto>>> GetAllPatients()
         {
             var Email = User.FindFirstValue(ClaimTypes.Email);
-            var Observer = (Observer)_userManager.FindByEmailAsync(Email!).Result!;
+            var doctor = (Doctor)_userManager.FindByEmailAsync(Email!).Result!;
 
-            var Patient = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == Observer.PatientObserverId);
-            if (Patient == null)
-                return BadRequest(new { message = "No Patient Found!" });
+            var Patients = await _dbContext.Patient.Where(p => p.PatientDoctorId == doctor.Id).ToListAsync();
 
-            var PatientData = await UserHelper.GetPatientData(Patient.Id, _dbContext);
+            if (Patients == null || Patients.Count() == 0)
+                return BadRequest(new { message = "No Patient Found!, Add One Or More To Show Details" });
 
-            var ReturnedData = _mapper.Map<AppUser, PatientWithHistoryToReturnDto>(PatientData!);
+            var ReturnedData = _mapper.Map<List<Patient>, List<UserSearchToReturnDto>>(Patients!);
+
             return Ok(ReturnedData);
         }
+
 
         [HttpGet("GetPatientHistory")]
-        public async Task<ActionResult<HistoryToReturnDto>> GetPatientHistory(string email)
+        public async Task<ActionResult<PatientWithHistoryAndObserverToReturnDto>> GetPatientHistory(string PatientEmail)
         {
-            var Patient = await _userManager.Users.FirstOrDefaultAsync(u => u.Email == email);
-            if (Patient == null)
+            var currentDoctorEmail = User.FindFirstValue(ClaimTypes.Email);
+            var currentDoctor = (Doctor)_userManager.FindByEmailAsync(currentDoctorEmail!).Result!;
+
+            var PatientData = await UserHelper.GetPatientDataWithObserver(PatientEmail, _dbContext);
+
+            if (PatientData == null || PatientData.PatientDoctorId != currentDoctor.Id)
                 return BadRequest(new { message = "No Patient Found!" });
 
-            var PatientHistory = await UserHelper.GetPatientHistory(Patient.Id, _dbContext);
-
-            var ReturnedData = _mapper.Map<AppUser, HistoryToReturnDto>(PatientHistory!);
+            var ReturnedData = _mapper.Map<Patient, PatientWithHistoryAndObserverToReturnDto>(PatientData!);
+            ReturnedData.Observer = _mapper.Map<Observer, ObserverToReturnDto>(PatientData.PatientObserver!);
             return Ok(ReturnedData);
         }
 
-
-        [HttpPut("AddPatientRequest")]
+        [HttpPost("AddPatientRequest")]
         public async Task<ActionResult<UserSearchToReturnDto>> AddPatientRequest(string PatientEmail)
         {
             var Email = User.FindFirstValue(ClaimTypes.Email);
             var Doctor = (Doctor)_userManager.FindByEmailAsync(Email!).Result!;
 
-            // check if Doctor has a patient
-            if (Doctor.PatientDoctorId != null)
-                return BadRequest(new { message = "You already have a patient!, Delete Him And Add Another" });
 
             // Check if the patient exists
             var patient = (Patient?)await UserHelper.UserSearch(PatientEmail, "Patient", _userManager);
@@ -124,11 +125,10 @@ namespace HealthCare.PL.Controllers
                 return BadRequest(new { message = "No Patient Found!" });
 
             //Check If Patient Has An Doctor
-            var IsDoctorable = _dbContext.Doctor.FirstOrDefault(O => O.PatientDoctorId == patient.Id);
 
-            if (IsDoctorable != null)
+            if (patient.PatientDoctorId is not null)
             {
-                return BadRequest(new { Message = "This Patient already have an Doctor, can't add more than an Doctor, he can remove his Doctor" });
+                return BadRequest(new { Message = "This Patient already has an Doctor, can't add more than an Doctor, he can remove his Doctor" });
             }
 
             var IsRequestExist = await UserHelper.CheckIfNotificationExist(patient.Id, Doctor.Id, _dbContext);
@@ -138,7 +138,7 @@ namespace HealthCare.PL.Controllers
             }
 
 
-            var Result = await UserHelper.AddOrEditToNotificatiopn(Doctor.Id, patient.Id, Doctor.Email!, PatientEmail, _dbContext);
+            var Result = await UserHelper.AddOrEditNotification(Doctor.Id, patient.Id, Doctor.Email!, PatientEmail, _dbContext);
             if (Result)
                 return Ok(new { message = "Request Sent Successfully!" });
             else
@@ -157,16 +157,9 @@ namespace HealthCare.PL.Controllers
             if (Patient == null)
                 return BadRequest(new { message = "No Patient Found!" });
 
-            // check if observer has a patient
-            if (Doctor.PatientDoctorId != null)
-                return BadRequest(new { message = "You already have an Doctor!, Delete Him And Add Another" });
-
-            // Check If Patient Has An Doctor
-            var IsDoctorable = _dbContext.Doctor.FirstOrDefault(O => O.PatientDoctorId == Patient.Id);
-            if (IsDoctorable != null)
-            {
-                return BadRequest(new { Message = "This Patient Has Already An Doctor " });
-            }
+            // Check If Patient Has A Doctor
+            if (Patient.PatientDoctorId != null)
+                return BadRequest(new { message = "This Patient already has a Doctor!. To Sent Request, He Can Delete His Doctor Before" });
 
 
             var notification = await UserHelper.CheckIfNotificationExist(Patient.Id, Doctor.Id, _dbContext);
@@ -175,11 +168,15 @@ namespace HealthCare.PL.Controllers
             {
                 return BadRequest(new { Message = "No Request Found!" });
             }
+            else if(notification.SenderEmail != PatientEmail && notification.ReceiverEmail != Doctor.Email)
+            {
+                return BadRequest(new { Message = "Error In Request!" });
+            }
 
             // Change the notification status to approved
             notification.Status = NotificationStatus.Approved;
             // Add the doctor to the patient's doctor
-            Doctor.PatientDoctorId = Patient.Id;
+            Patient.PatientDoctorId = Doctor.Id;
 
             if (await _dbContext.SaveChangesAsync() > 0)
             {
@@ -191,28 +188,38 @@ namespace HealthCare.PL.Controllers
 
 
         [HttpPut("DeletePatient")]
-        public async Task<ActionResult> DeletePatient()
+        public async Task<ActionResult> DeletePatient(string PatientEmail)
         {
             // Get the Doctor's email from the user's claims
             var DoctorEmail = User.FindFirstValue(ClaimTypes.Email)!;
-
-            // Get the Doctor's ID from the database
+            
+            // Get the Doctor's Data from the database
             var Doctor = (Doctor)_userManager.FindByEmailAsync(DoctorEmail).Result!;
 
-            if (Doctor.PatientDoctorId == null)
-            {
-                return BadRequest(new { Message = "You don't have an Doctor to delete" });
-            }
+            // Get the patient's data from the database
+            var Patient = (Patient?)await UserHelper.UserSearch(PatientEmail, "Patient", _userManager);
+
+            // Check If Patient Exist And Has The Same Doctor
+            if (Patient is null || Patient.PatientDoctorId != Doctor.Id)
+                return BadRequest(new { Message = "No Patient Exist" });
+
+
+            var notification = await UserHelper.CheckIfNotificationExist(Patient.Id, Patient.PatientDoctorId, _dbContext, NotificationStatus.Approved);
+
+            if (notification is not null)
+                notification!.Status = NotificationStatus.Canceled;
+
 
             //Make the patient Doctor id is null
-            Doctor.PatientDoctorId = null;
+            Patient.PatientDoctorId = null;
             var result = await _userManager.UpdateAsync(Doctor);
 
             if (result.Succeeded)
-                return Ok(new { Message = "Doctor Deleted Successfully" });
+                return Ok(new { Message = "Patient Deleted Successfully" });
 
-            return BadRequest(new { Message = "Failed to delete the Doctor, Try again" });
+            return BadRequest(new { Message = "Failed To Delete The Patient, Try again" });
 
         }
+
     }
 }

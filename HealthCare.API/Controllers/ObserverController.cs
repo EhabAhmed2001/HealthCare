@@ -44,14 +44,14 @@ namespace HealthCare.PL.Controllers
 
             if (existingUserByEmail != null)
             {
-                return BadRequest(new { message = "Observer with this email Already Exists!" });
+                return BadRequest(new { message = "This Email Already Exists!" });
             }
 
             var existingUserByPhoneNumber = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == Observers.PhoneNumber);
 
             if (existingUserByPhoneNumber != null)
             {
-                return BadRequest(new { message = "Observer with this phone number Already Exists!" });
+                return BadRequest(new { message = "This Phone Number Already Exists!" });
             }
 
             var Observer = new Observer()
@@ -85,7 +85,7 @@ namespace HealthCare.PL.Controllers
         }
 
         [HttpGet("GetPatientData")]
-        public async Task<ActionResult<UserSearchToReturnDto>> GetPatientData()
+        public async Task<ActionResult<PatientDataWithDoctorAndObserverToReturnDto>> GetPatientData()
         {
             var Email = User.FindFirstValue(ClaimTypes.Email);
             var Observer = (Observer) _userManager.FindByEmailAsync(Email!).Result!;
@@ -94,13 +94,13 @@ namespace HealthCare.PL.Controllers
             if(Patient == null)
                 return BadRequest(new { message = "No Patient Found!" });
 
-            var PatientData = await UserHelper.GetPatientData(Patient.Id, _dbContext);
+            var PatientData = await UserHelper.GetPatientDataWithDoctor(Patient.Id, _dbContext);
 
-            var ReturnedData = _mapper.Map<AppUser, PatientWithHistoryToReturnDto>(PatientData!);
+            var ReturnedData = _mapper.Map<AppUser, PatientDataWithDoctorAndObserverToReturnDto>(PatientData!);
             return Ok(ReturnedData);
         }
 
-        [HttpPut("AddPatientRequest")]
+        [HttpPost("AddPatientRequest")]
         public async Task<ActionResult<UserSearchToReturnDto>> AddPatientRequest(string PatientEmail)
         {
             var Email = User.FindFirstValue(ClaimTypes.Email);
@@ -108,7 +108,7 @@ namespace HealthCare.PL.Controllers
 
             // check if observer has a patient
             if (Observer.PatientObserverId != null)
-                return BadRequest(new { message = "You already have a patient!, Delete Him And Add Another" });
+                return BadRequest(new { message = "You Already Have A Patient!, Delete Him And Add Another" });
 
             // Check if the patient exists
             var patient = (Patient?)await UserHelper.UserSearch(PatientEmail, "Patient", _userManager);
@@ -120,7 +120,7 @@ namespace HealthCare.PL.Controllers
 
             if (IsObserverable != null)
             {
-                return BadRequest(new { Message = "This Patient already have an observer, can't add more than an observer, he can remove his observer" });
+                return BadRequest(new { Message = "This Patient Already Has An Observer, Can't Add More Than A Patient" });
             }
 
             var IsRequestExist = await UserHelper.CheckIfNotificationExist(patient.Id, Observer.Id, _dbContext);
@@ -130,7 +130,7 @@ namespace HealthCare.PL.Controllers
             }
 
 
-            var Result = await UserHelper.AddOrEditToNotificatiopn(Observer.Id, patient.Id, Observer.Email!, PatientEmail, _dbContext);
+            var Result = await UserHelper.AddOrEditNotification(Observer.Id, patient.Id, Observer.Email!, PatientEmail, _dbContext);
             if (Result)
                 return Ok(new { message = "Request Sent Successfully!" });
             else
@@ -141,8 +141,8 @@ namespace HealthCare.PL.Controllers
         [HttpPut("AcceptPatientRequest")]
         public async Task<ActionResult<UserSearchToReturnDto>> AcceptPatientRequest(string PatientEmail)
         {
-            var Email = User.FindFirstValue(ClaimTypes.Email);
-            var Observer = (Observer?)_userManager.FindByEmailAsync(Email!).Result!;
+            var ObserverEmail = User.FindFirstValue(ClaimTypes.Email);
+            var Observer = (Observer?)_userManager.FindByEmailAsync(ObserverEmail!).Result!;
 
             var Patient = (Patient?)await UserHelper.UserSearch(PatientEmail, "Patient", _userManager);
 
@@ -151,7 +151,7 @@ namespace HealthCare.PL.Controllers
 
             // check if observer has a patient
             if (Observer.PatientObserverId != null)
-                return BadRequest(new { message = "You already have an observer!, Delete Him And Add Another" });
+                return BadRequest(new { message = "You Already Have A Patient!, Delete Him And Add Another" });
 
             // Check If Patient Has An Observer
             var IsObserverable = _dbContext.Observer.FirstOrDefault(O => O.PatientObserverId == Patient.Id);
@@ -166,6 +166,10 @@ namespace HealthCare.PL.Controllers
             if (notification == null)
             {
                 return BadRequest(new { Message = "No Request Found!" });
+            }
+            else if (notification.SenderEmail != PatientEmail && notification.ReceiverEmail != ObserverEmail)
+            {
+                return BadRequest(new { Message = "Error In Request!" });
             }
 
             // Change the notification status to approved
@@ -193,17 +197,23 @@ namespace HealthCare.PL.Controllers
 
             if (observer.PatientObserverId == null)
             {
-                return BadRequest(new { Message = "You don't have an observer to delete" });
+                return BadRequest(new { Message = "You Don't Have A Patient To Delete" });
             }
+
+            // Update Notification Status to Canceled
+            var notification = await UserHelper.CheckIfNotificationExist(observer.Id, observer.PatientObserverId, _dbContext, NotificationStatus.Approved);
+            
+            if (notification is not null)
+                notification!.Status = NotificationStatus.Canceled;
 
             //Make the patient observer id is null
             observer.PatientObserverId = null;
             var result = await _userManager.UpdateAsync(observer);
 
             if (result.Succeeded)
-                return Ok(new { Message = "Observer Deleted Successfully" });
+                return Ok(new { Message = "Patient Deleted Successfully" });
 
-            return BadRequest(new { Message = "Failed to delete the observer, Try again" });
+            return BadRequest(new { Message = "Failed To Delete The Patient, Try Again" });
 
         }
 

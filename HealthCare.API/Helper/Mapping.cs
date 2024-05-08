@@ -18,15 +18,15 @@ namespace HealthCare.PL.Helper
                 .ForMember(Sr => Sr.Country, O => O.MapFrom(S => S.Address.Country));
 
 
-            CreateMap<Observer, ObserverToReturnDto>();
+            CreateMap<Patient, PatientWithHistoryAndObserverToReturnDto>();
 
             CreateMap<Doctor, DoctorToReturnDto>();
 
-            CreateMap<Patient, PatientToReturnDto>();
-
             CreateMap<AppUser, UserSearchToReturnDto>();
 
-            CreateMap<Patient, PatientWithHistoryToReturnDto>();
+            CreateMap<Patient, PatientDataWithDoctorAndObserverToReturnDto>();
+
+            CreateMap<Observer, ObserverToReturnDto>();
 
             CreateMap<History, HistoryToReturnDto>()
                 .ForMember(HR => HR.HeartRate, O => O.MapFrom(H => H.UserData.HeartRate))

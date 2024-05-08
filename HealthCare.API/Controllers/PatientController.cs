@@ -192,7 +192,7 @@ namespace HealthCare.PL.Controllers
             }
 
             // Add the request to the database
-            var result = await UserHelper.AddOrEditToNotificatiopn(patient.Id, doctor.Id, patient.Email!, Email, _dbContext);
+            var result = await UserHelper.AddOrEditNotification(patient.Id, doctor.Id, patient.Email!, Email, _dbContext);
 
             if (result)
             {
@@ -242,7 +242,7 @@ namespace HealthCare.PL.Controllers
             }
 
             // Add the request to the database
-            var result = await UserHelper.AddOrEditToNotificatiopn(patient.Id, observer.Id, patient.Email!, Email, _dbContext);
+            var result = await UserHelper.AddOrEditNotification(patient.Id, observer.Id, patient.Email!, Email, _dbContext);
 
             if (result)
             {
@@ -252,6 +252,7 @@ namespace HealthCare.PL.Controllers
             return BadRequest(new { Message = "Failed to send the request. Try again" });
         }
 
+        /*
 
         [HttpPut("DeleteDoctor")]
         public async Task<ActionResult> DeleteDoctor()
@@ -306,7 +307,7 @@ namespace HealthCare.PL.Controllers
 
         }
 
-        
+        */
 
         [HttpPut("AcceptRequest")]
         public async Task<ActionResult> AcceptRequest(string SenderEmail)
@@ -334,6 +335,10 @@ namespace HealthCare.PL.Controllers
             if (notification == null)
             {
                 return BadRequest(new { Message = "Request not found." });
+            }
+            else if (notification.SenderEmail != SenderEmail && notification.ReceiverEmail != ReceiverEmail)
+            {
+                return BadRequest(new { Message = "Error In Request!" });
             }
 
 

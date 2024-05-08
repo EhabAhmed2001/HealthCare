@@ -76,8 +76,9 @@ namespace HealthCare.PL.Controllers
             if (role.Contains("Patient"))
             {
                 var CurrentPatient = (Patient)user;
-                var patient = await UserHelper.GetPatientData(CurrentPatient.Id, _dbContext);
-                var PatientToReturn = _mapper.Map<Patient, PatientWithHistoryToReturnDto>(patient);
+                var patient = await UserHelper.GetPatientDataWithDoctorAndObserver(CurrentPatient.Id, _dbContext);
+                var PatientToReturn = _mapper.Map<Patient, PatientDataWithDoctorAndObserverToReturnDto>(patient);
+                PatientToReturn.Observer = _mapper.Map<Observer, ObserverToReturnDto>(patient!.PatientObserver);
 
                 return Ok(PatientToReturn);
             }
@@ -185,6 +186,10 @@ namespace HealthCare.PL.Controllers
             {
                 return BadRequest(new { Message = "Request not found." });
             }
+            else if (notification.SenderEmail != SenderEmail && notification.ReceiverEmail != ReceiverEmail)
+            {
+                return BadRequest(new { Message = "Error In Request!" });
+            }
 
             notification.Status = NotificationStatus.Rejected;
 
@@ -222,6 +227,10 @@ namespace HealthCare.PL.Controllers
             if (notification == null)
             {
                 return BadRequest(new { Message = "Request not found." });
+            }
+            else if (notification.SenderEmail != SenderEmail && notification.ReceiverEmail != ReceiverEmail)
+            {
+                return BadRequest(new { Message = "Error In Request!" });
             }
 
             notification.Status = NotificationStatus.Canceled;

@@ -38,7 +38,7 @@ namespace HealthCare.PL.Helper
             return notification;
         }
         // Method to add notification 
-        public async static Task<bool> AddOrEditToNotificatiopn(string SenderId, string ReceiverId, string SenderEmail, string ReceiverEmail, HealthCareContext _dbcontext, NotificationStatus Status = NotificationStatus.Pending)
+        public async static Task<bool> AddOrEditNotification(string SenderId, string ReceiverId, string SenderEmail, string ReceiverEmail, HealthCareContext _dbcontext, NotificationStatus Status = NotificationStatus.Pending)
         {
             var notification = new Notification
             {
@@ -54,15 +54,20 @@ namespace HealthCare.PL.Helper
         }
 
         // Method to get patient data with his history by id
-        public async static Task<Patient?> GetPatientData(string PatientId, HealthCareContext _dbcontext)
+        public async static Task<Patient?> GetPatientDataWithDoctor(string PatientId, HealthCareContext _dbcontext)
         {
             return await _dbcontext.Patient.Include(p => p.History).Include(P=>P.Doctor).FirstOrDefaultAsync(p => p.Id == PatientId);
         }
-
-        // Method to get patient History with his history by id
-        public async static Task<Patient?> GetPatientHistory(string PatientId, HealthCareContext _dbcontext)
+        
+        public async static Task<Patient?> GetPatientDataWithObserver(string PatientEmail, HealthCareContext _dbcontext)
         {
-            return await _dbcontext.Patient.Include(p => p.History).Include(P => P.Doctor).FirstOrDefaultAsync(p => p.Id == PatientId);
+            return await _dbcontext.Patient.Include(p => p.History).Include(P=>P.PatientObserver).FirstOrDefaultAsync(p => p.Email == PatientEmail);
         }
+
+        public async static Task<Patient?> GetPatientDataWithDoctorAndObserver(string PatientId, HealthCareContext _dbcontext)
+        {
+            return await _dbcontext.Patient.Include(p => p.History).Include(P => P.Doctor).Include(P=>P.PatientObserver).FirstOrDefaultAsync(p => p.Id == PatientId);
+        }
+
     }
 }

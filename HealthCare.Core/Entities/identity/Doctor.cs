@@ -9,8 +9,6 @@ namespace HealthCare.Core.Entities
 {
     public class Doctor : AppUser
     {
-        public string? PatientDoctorId { get; set; }
-        public Patient? Patient { get; set; }
         public string Specialist { get; set; } = "General";
 
         // Patient Relation
