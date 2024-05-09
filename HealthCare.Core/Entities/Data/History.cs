@@ -16,8 +16,8 @@ namespace HealthCare.Core.Entities
         public string HistoryPatientId { get; set; }
         public Patient Patient { get; set; }
         
-        public string HistoryDoctorId { get; set; }
-        public Doctor Doctor { get; set; }
+        public string? HistoryDoctorId { get; set; }
+        public Doctor? Doctor { get; set; }
 
 
     }

@@ -34,6 +34,12 @@ namespace HealthCare.PL.Helper
                 .ForMember(HR => HR.ECG, O => O.MapFrom(H => H.UserData.ECG))
                 .ForMember(HR => HR.Oxygen, O => O.MapFrom(H => H.UserData.Oxygen));
 
+            CreateMap<HistoryDto, History>()
+               .ForPath(H => H.UserData.HeartRate, O => O.MapFrom(HD => HD.HeartRate))
+               .ForPath(H => H.UserData.Temperature, O => O.MapFrom(HD => HD.Temperature))
+               .ForPath(H => H.UserData.ECG, O => O.MapFrom(HD => HD.ECG))
+               .ForPath(H => H.UserData.Oxygen, O => O.MapFrom(HD => HD.Oxygen));
+
         }
     }
 }

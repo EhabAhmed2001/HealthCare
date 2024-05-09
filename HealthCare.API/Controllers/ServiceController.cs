@@ -4,11 +4,13 @@ using HealthCare.Core.Entities.Data;
 using HealthCare.Core.Specifications.ServiceSpecification;
 using HealthCare.PL.DTOs;
 using HealthCare.PL.Helper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthCare.PL.Controllers
 {
+    [Authorize]
     public class ServiceController : APIBaseController
     {
         private readonly IUnitOfWork _unitOfWork;

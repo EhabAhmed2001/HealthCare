@@ -23,6 +23,7 @@ using System.Security.Claims;
 
 namespace HealthCare.PL.Controllers
 {
+    [Authorize]
     public class AccountController : APIBaseController
     {
         private readonly UserManager<AppUser> _userManager;
@@ -42,6 +43,7 @@ namespace HealthCare.PL.Controllers
             _dbContext = DbContext;
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<UserToReturnDto>> login(LoginDto model)
         {

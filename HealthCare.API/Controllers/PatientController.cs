@@ -19,9 +19,11 @@ using AutoMapper;
 using HealthCare.PL.Helper;
 using System.Reflection;
 using HealthCare.Core.AddRequest;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HealthCare.PL.Controllers
 {
+    [Authorize(Roles = "Patient")]
     public class PatientController : APIBaseController
     {
         private readonly UserManager<AppUser> _userManager;
@@ -39,6 +41,7 @@ namespace HealthCare.PL.Controllers
             _mapper = mapper;
         }
 
+        [AllowAnonymous]
         [HttpPost("PatientRegister")]
         public async Task<ActionResult<UserToReturnDto>> Register(PatientRegisterDto Patients)
         {

@@ -19,9 +19,12 @@ using HealthCare.PL.Helper;
 using HealthCare.Repository.Data;
 using Microsoft.AspNetCore.Hosting.Server;
 using HealthCare.Core.AddRequest;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HealthCare.PL.Controllers
 {
+    [Authorize(Roles = "Observer")]
+
     public class ObserverController : APIBaseController
     {
         private readonly UserManager<AppUser> _userManager;
@@ -37,6 +40,7 @@ namespace HealthCare.PL.Controllers
             _dbContext = DbContext;
         }
 
+        [AllowAnonymous]
         [HttpPost("ObserverRegister")]
         public async Task<ActionResult<UserToReturnDto>> Register(ObserverRegisterDto Observers)
         {

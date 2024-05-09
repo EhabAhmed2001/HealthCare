@@ -6,17 +6,19 @@ using HealthCare.PL.DTOs;
 using HealthCare.PL.Helper;
 using HealthCare.Repository.Data;
 using HealthCare.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Data;
 using System.Security.Claims;
 
 namespace HealthCare.PL.Controllers
 {
-
+    [Authorize(Roles = "Doctor" )]
     public class DoctorController : APIBaseController
     {
         private readonly UserManager<AppUser> _userManager;
@@ -32,6 +34,7 @@ namespace HealthCare.PL.Controllers
             _dbContext = DbContext;
         }
 
+        [AllowAnonymous]
         [HttpPost("Register")]
         public async Task<ActionResult<UserToReturnDto>> Register(DoctorRegisterDto model )
         {
@@ -221,5 +224,7 @@ namespace HealthCare.PL.Controllers
 
         }
 
+
+        
     }
 }
