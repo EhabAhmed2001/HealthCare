@@ -23,4 +23,14 @@
     <ProjectReference Include="..\HealthCare.Service\HealthCare.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\" />
+    <Content Remove="wwwroot\Files \" />
+    <Content Remove="wwwroot\Files \Pictures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\Files \" />
+    <Folder Include="wwwroot\Files \Pictures\" />
+  </ItemGroup>
 </Project>
