@@ -250,30 +250,32 @@ namespace HealthCare.PL.Controllers
         }
 
         [HttpPut("UpdateProfile")]
-        public static string UpdateProfile(IFormFile file, string FolderName, string address)
+        public string UpdateProfile([FromForm] IFormFile? image,[FromForm] AddressDto? address)
         {
-            // Update the user's photo
-            if (photo != null)
+            var UserEmail = User.FindFirstValue(ClaimTypes.Email)!;
+            var user = _userManager.FindByEmailAsync(UserEmail).Result!;
+            if(image is not null)
             {
-                // Get located folder path
-                string FolderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Files", FolderName);
-
-                string FileName = $"{Guid.NewGuid()}{file.FileName}";
-                string FilePath = Path.Combine(FolderPath, FileName);
-
-                // Save the Picture as streams
-                using var Filetream = new FileStream(filePath, FileMode.Create)
-
-                // Update the user's photo URL in the database
-                user.PhotoUrl = $"/images/{fileName}";
+                var OldImage = user.PictureUrl;
+                var ImagePath = UserHelper.UploadFile(image);
+                user.PictureUrl = ImagePath;
+                UserHelper.DeleteFile(OldImage);
             }
 
-            // Update the user's address
-            user.Address = address;
+            if (address != null && address.Country != null && address.City != null && address.Region != null && address.Street != null)
+            {
+                var mappedAddress = _mapper.Map<AddressDto, Address>(address);
+                user.Address = mappedAddress;
+            }
 
-            await _userManager.UpdateAsync(user);
-
-            return Ok(new { message = "Profile updated successfully" });
+            if (_dbContext.SaveChanges() > 0)
+            {
+                return "Profile Updated Successfully";
+            }
+            else
+            {
+                return "Failed to update profile";
+            }
         }
     }
 }

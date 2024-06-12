@@ -40,6 +40,8 @@ namespace HealthCare.PL.Helper
                .ForPath(H => H.UserData.ECG, O => O.MapFrom(HD => HD.ECG))
                .ForPath(H => H.UserData.Oxygen, O => O.MapFrom(HD => HD.Oxygen));
 
+            CreateMap<AddressDto, Address>();
+
         }
     }
 }

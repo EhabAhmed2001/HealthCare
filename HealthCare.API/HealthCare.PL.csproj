@@ -25,12 +25,9 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\" />
-    <Content Remove="wwwroot\Files \" />
-    <Content Remove="wwwroot\Files \Pictures\" />
   </ItemGroup>
+
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-    <Folder Include="wwwroot\Files \" />
-    <Folder Include="wwwroot\Files \Pictures\" />
+    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 </Project>
