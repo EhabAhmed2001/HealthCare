@@ -18,15 +18,20 @@ namespace HealthCare.PL.Helper
                 .ForMember(Sr => Sr.Country, O => O.MapFrom(S => S.Address.Country));
 
 
-            CreateMap<Patient, PatientWithHistoryAndObserverToReturnDto>();
+            CreateMap<Patient, PatientWithHistoryAndObserverToReturnDto>()
+                .ForMember(Us => Us.PictureUrl, O => O.MapFrom<PictureResolver>());
 
-            CreateMap<Doctor, DoctorToReturnDto>();
+            CreateMap<Doctor, DoctorToReturnDto>()
+                .ForMember(Us => Us.PictureUrl, O => O.MapFrom<PictureResolver>());
 
-            CreateMap<AppUser, UserSearchToReturnDto>();
+            CreateMap<AppUser, UserSearchToReturnDto>()
+                .ForMember(Us => Us.PictureUrl, O => O.MapFrom<PictureResolver>());
 
-            CreateMap<Patient, PatientDataWithDoctorAndObserverToReturnDto>();
+            CreateMap<Patient, PatientDataWithDoctorAndObserverToReturnDto>()
+                .ForMember(Us => Us.PictureUrl, O => O.MapFrom<PictureResolver>()); 
 
-            CreateMap<Observer, ObserverToReturnDto>();
+            CreateMap<Observer, ObserverToReturnDto>()
+                .ForMember(Us => Us.PictureUrl, O => O.MapFrom<PictureResolver>()); 
 
             CreateMap<History, HistoryToReturnDto>()
                 .ForMember(HR => HR.HeartRate, O => O.MapFrom(H => H.UserData.HeartRate))
@@ -41,6 +46,9 @@ namespace HealthCare.PL.Helper
                .ForPath(H => H.UserData.Oxygen, O => O.MapFrom(HD => HD.Oxygen));
 
             CreateMap<AddressDto, Address>();
+
+            CreateMap<AppUser, UserSearchToReturnDto>()
+                .ForMember(Us => Us.PictureUrl, O => O.MapFrom<PictureResolver>());
 
         }
     }

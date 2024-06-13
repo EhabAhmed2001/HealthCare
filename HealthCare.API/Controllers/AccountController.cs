@@ -20,6 +20,7 @@ using System;
 using System.Data;
 using System.IO;
 using System.Security.Claims;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace HealthCare.PL.Controllers
@@ -249,20 +250,39 @@ namespace HealthCare.PL.Controllers
 
         }
 
-        [HttpPut("UpdateProfile")]
-        public string UpdateProfile([FromForm] IFormFile? image,[FromForm] AddressDto? address)
+
+
+        [HttpPut("UpdateImage")]
+        public string UpdateImage([FromForm] IFormFile? image)
         {
             var UserEmail = User.FindFirstValue(ClaimTypes.Email)!;
             var user = _userManager.FindByEmailAsync(UserEmail).Result!;
             if(image is not null)
             {
-                var OldImage = user.PictureUrl;
+                var OldImage = user.PictureUrl.Split('/')[1];
                 var ImagePath = UserHelper.UploadFile(image);
                 user.PictureUrl = ImagePath;
-                UserHelper.DeleteFile(OldImage);
+                if(OldImage != "defaultImg.png")
+                    UserHelper.DeleteFile(OldImage);
             }
 
-            if (address != null && address.Country != null && address.City != null && address.Region != null && address.Street != null)
+            if (_dbContext.SaveChanges() > 0)
+            {
+                return "Image Updated Successfully";
+            }
+            else
+            {
+                return "Failed to update Image";
+            }
+        }
+
+        [HttpPut("UpdateAddress")]
+        public string UpdateAddress(AddressDto address)
+        {
+            var UserEmail = User.FindFirstValue(ClaimTypes.Email)!;
+            var user = _userManager.FindByEmailAsync(UserEmail).Result!;
+
+            if (address != null)
             {
                 var mappedAddress = _mapper.Map<AddressDto, Address>(address);
                 user.Address = mappedAddress;
@@ -270,11 +290,11 @@ namespace HealthCare.PL.Controllers
 
             if (_dbContext.SaveChanges() > 0)
             {
-                return "Profile Updated Successfully";
+                return "Address Updated Successfully";
             }
             else
             {
-                return "Failed to update profile";
+                return "Failed to update Address";
             }
         }
     }

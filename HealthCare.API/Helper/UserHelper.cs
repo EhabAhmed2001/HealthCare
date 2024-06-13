@@ -86,13 +86,13 @@ namespace HealthCare.PL.Helper
             file.CopyTo(FS);
 
             //5. Return File Name
-            return FilePath;
+            return $"{folderName}/{FileName}";
         }
 
 
-        // Delete File from wwwroot
-        public static void DeleteFile(string FilePath)
+        public static void DeleteFile(string fileName, string folderName= "Images")
         {
+            string FilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", folderName, fileName);
             if (File.Exists(FilePath))
                 File.Delete(FilePath);
         }
