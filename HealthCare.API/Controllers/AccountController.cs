@@ -297,5 +297,28 @@ namespace HealthCare.PL.Controllers
                 return "Failed to update Address";
             }
         }
+
+        // Add Device Token into user
+        [HttpPost("AddDeviceToken")]
+        public async Task<ActionResult> AddDeviceToken(string deviceToken)
+        {
+            var UserEmail = User.FindFirstValue(ClaimTypes.Email)!;
+            var user = _userManager.FindByEmailAsync(UserEmail).Result!;
+
+            if (deviceToken != null)
+            {
+                user.DeviceToken = deviceToken;
+            }
+
+            if (_dbContext.SaveChanges() > 0)
+            {
+                return Ok(new { Message = "Device Token Added Successfully" });
+            }
+            else
+            {
+                return BadRequest(new { Message = "Failed to add Device Token" });
+            }
+        }
+
     }
 }

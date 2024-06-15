@@ -14,6 +14,7 @@ namespace HealthCare.Core.Entities.identity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string? DeviceToken { get; set; }
         public string PictureUrl { get; set; } = "Images/defaultImg.png";
         public Address Address { get; set; }
     }
