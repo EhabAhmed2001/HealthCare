@@ -299,7 +299,7 @@ namespace HealthCare.PL.Controllers
         }
 
         // Add Device Token into user
-        [HttpPost("AddDeviceToken")]
+        [HttpPut("AddDeviceToken")]
         public async Task<ActionResult> AddDeviceToken(string deviceToken)
         {
             var UserEmail = User.FindFirstValue(ClaimTypes.Email)!;
@@ -308,6 +308,11 @@ namespace HealthCare.PL.Controllers
             if (deviceToken != null)
             {
                 user.DeviceToken = deviceToken;
+            }
+
+            if(deviceToken != null && user.DeviceToken == deviceToken)
+            {
+                return Ok(new { Message = "Device Token Already Exists" });
             }
 
             if (_dbContext.SaveChanges() > 0)
